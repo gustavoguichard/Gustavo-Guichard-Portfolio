@@ -1,0 +1,31 @@
+<footer id="footer">
+	<div class='container'>
+		<div class="row">
+			<section class="span4">
+				<p>I'm fun to work with, if you want to improve your online business or launch an idea, just <%= link_to "get in touch", contact_path %>.</p>
+			</section>
+			<section class="span5">
+				<address>
+					<span>Skype:</span> <a href="skype:gustavo.guichard" rel="tooltip" title="Add as a contact">gustavo.guichard</a><br />
+					<span>Email:</span> <a href="mailto:talk@gustavoguichard.com" rel="tooltip" title="Send with your email client">talk[at]gustavoguichard.com</a>
+				</address>
+			</section>
+			<section class="span3">
+				<%= form_tag root_path, :method => :get do %>
+			    <%= text_field_tag :search, params[:search], :placeholder => "Search" %>
+				<% end %>
+				<aside id="social">
+					<a href="http://forrst.com/people/gustavoguichard" target="_blank" class="Forrst" rel="tooltip" title="Forrst">Forrst</a>
+					<a href="https://plus.google.com/110915017162031397251" target="_blank" class="Google" rel="tooltip" title="Google +">Google +</a>
+					<a href="skype:gustavo.guichard" class="Skype" rel="tooltip" title="Skype">Skype</a>
+					<a href="http://twitter.com/#!/gustavoguichard" target="_blank" class="Twitter" rel="tooltip" title="Twitter">Twitter</a>
+					<a href="http://www.linkedin.com/pub/gustavo-guichard/32/838/315" target="_blank" class="LinkedIn" rel="tooltip" title="LinkedIn">LinkedIn</a>
+					<!-- <a href="#" class="RSS" rel="tooltip" title="RSS">RSS</a> -->
+				</aside>
+			</section>
+		</div>
+	</div>
+</footer>
+<section id="copyright">
+  &copy; Gustavo Guichard - <%= Date.today.year %> - all rights reserved
+</section>
