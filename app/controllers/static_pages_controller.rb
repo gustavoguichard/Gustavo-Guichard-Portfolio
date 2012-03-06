@@ -1,11 +1,8 @@
 class StaticPagesController < ApplicationController
 	def home
+		@testimonials = Testimonial.all(order: "position")
 	end
-	def portfolio
-	end
-	def services
-	end
-	
+
 	def contact
 		@message = Message.new
 	end

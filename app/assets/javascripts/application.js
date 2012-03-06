@@ -15,4 +15,3 @@
 //= require twitter/bootstrap/bootstrap-tooltip
 //= require jquery.quicksand
 //= require static_pages
-

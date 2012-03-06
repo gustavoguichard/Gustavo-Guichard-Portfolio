@@ -19,6 +19,8 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul{
 	font-family: 'Doppio One', sans-serif;
 	font-weight: normal;
 	text-transform: uppercase;
+
+	a{color: #83a5d2;}
 }
 
 #header{
@@ -86,7 +88,7 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul{
 	min-height: 350px;
 	text-shadow: 0 1px 1px white;
 
-	.btn{
+	.btn.btn-green{
 		font-family: Damion, cursive;
 		color: white;
 		font-size: 23px;
@@ -170,14 +172,25 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul{
 			background-color: #f2f2f2;
 		}
 	}
+
+	.field_with_errors{
+		input, textarea{
+			background: #fee;
+		}
+	}
+
+	small{
+		font-size: 90%;
+		font-style: italic;
+		color: #808080;
+	}
 }
 
 #intro{
 	position: relative;
-	margin-bottom: 40px;
+	margin-bottom: 30px;
 
 	p{
-		width: 460px;
 		font-size: 18px;
 		line-height: 27px;
 		margin: 20px 0 30px;
@@ -186,13 +199,18 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul{
 	img#home_img{
 		position: absolute;
 		right: 0;
-		top: -80px;
+		top: -10px;
 		z-index: -5;
 	}
 }
 
 #testimonials{
 
+	.testimonial_container{
+		padding-bottom: 40px;
+		float: left;
+	}
+	
 	.testimonial{
 		float: left;
 
@@ -200,22 +218,17 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul{
 			width: 310px;
 			margin-top: 10px;
 		}
-
-		small{
-			font-size: 90%;
-			font-style: italic;
-			color: #808080;
-		}
 	}
 
 	img{
 		float: left;
 		margin-right: 20px;
+		box-shadow: 0 0 7px rgba(0,0,0,.3);
+		border-radius: 60px;
 	}
 	
 	.row{
 		margin-top: 20px;
-		margin-bottom: 30px;
 	}
 }
 
@@ -228,15 +241,22 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul{
 
 		img{
 			margin-bottom: 5px;
+			border: 1px solid #a0a0a0;
 		}
 
 		small{
-			color: #808080;
-			font-style: italic;
 			font-size: 10px;
 			text-shadow: none;
 			position: relative;
 			top: -6px;
+		}
+
+		.btn-danger{
+			position: absolute;
+			top: 5px;
+			right: 5px;
+			color: white;
+			font-family: Doppio, sans-serif;
 		}
 		
 		&::after{
@@ -248,14 +268,36 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul{
 			top: -2px;
 			left: -15px;
 			z-index: -5;
-			background: url(portfolio/shadows/shadow1.png) no-repeat center top;
+			background: url(shadows/shadow1.png) no-repeat center top;
 		}
-		&.shadow1::after{background-image: url(portfolio/shadows/shadow1.png);}
-		&.shadow2::after{background-image: url(portfolio/shadows/shadow2.png);}
-		&.shadow3::after{background-image: url(portfolio/shadows/shadow3.png);}
-		&.shadow3b::after{background-image: url(portfolio/shadows/shadow3b.png);}
-		&.shadow4::after{background-image: url(portfolio/shadows/shadow4.png);}
-		&.shadow4b::after{background-image: url(portfolio/shadows/shadow4b.png);}
+		&.shadow1::after{background-image: url(shadows/shadow1.png);}
+		&.shadow2::after{background-image: url(shadows/shadow2.png);}
+		&.shadow3::after{background-image: url(shadows/shadow3.png);}
+		&.shadow3b::after{background-image: url(shadows/shadow3b.png);}
+		&.shadow4::after{background-image: url(shadows/shadow4.png);}
+		&.shadow4b::after{background-image: url(shadows/shadow4b.png);}
+	}
+}
+
+.image_portfolio{
+	position: relative;
+	padding-bottom: 40px;
+
+	img{
+		border: 1px solid #a0a0a0;
+		border-radius: 3px;
+	}
+
+	&::after{
+		content: "";
+		display: block;
+		width: 653px;
+		height: 349px;
+		background: url(shadows/shadow_big.png) no-repeat center;
+		position: absolute;
+		top: 148px;
+		left: -26px;
+		z-index: -5;
 	}
 }
 
@@ -264,6 +306,14 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul{
 	.service{
 		text-align: center;
 		margin-bottom: 30px;
+		position: relative;
+		height: 220px;
+
+		.btn{
+			position: absolute;
+			top: 5px;
+			right: 5px;
+		}
 	}
 }
 
@@ -286,6 +336,14 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul{
 	}
 	li.active a{
 		color: #333 !important;
+	}
+}
+
+aside.description{
+
+	small{
+		position: relative;
+		top: -6px;
 	}
 }
 
@@ -356,4 +414,13 @@ section#copyright{
 	float: left;
 	clear: both;
 	width: 100%;
+}
+
+#logout_control{
+	position: absolute;
+	bottom: 15px;
+	right: 10px;
+	z-index: 50;
+
+	a.btn{color:#333;}
 }

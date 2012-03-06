@@ -1,0 +1,34 @@
+<% title "Project: " + @project.title %>
+<h2><%= link_to "Portfolio", portfolio_path %></h2>
+<hr />
+<article class="row">
+	<section class="span8 image_portfolio">
+		<% if @project.video_url.present? %>
+			<iframe src="http://player.vimeo.com/video/<%= @project.video_number %>?byline=0&amp;portrait=0" width="599" height="481" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+		<% else %>
+			<%= image_tag @project.image.url(:big) %>
+		<% end %>
+	</section>
+	<aside class="span4 description">
+		<% if @admin %>
+		<h2><%= best_in_place @project, :title %></h2>
+		<small><%= best_in_place @project, :tag_names %></small>
+		<%= best_in_place @project, :content, type: :textarea, sanitize: false %>
+		<p><%= best_in_place @project, :visit_url %></p>
+		<p><%= best_in_place @project, :video_url %></p>
+		<%= form_for(@project) do |f| %>
+			<div class="form-inputs">
+				<%= f.file_field :image, class: "span4" %>
+		  </div>
+		  <div class="form-actions">
+		    <%= f.button "Atualizar!", class: "btn" %>
+		  </div>
+			<% end %>
+		<% else %>
+		<h2><%= @project.title %></h2>
+		<small><%= @project.tag_names %></small>
+		<p><%= raw @project.content %></p>
+		<% end %>
+		<%= link_to "Visit this project", @project.visit_url, class: "btn btn-green" unless @project.visit_url.empty? %>
+	</aside>
+</article>

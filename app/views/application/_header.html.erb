@@ -4,7 +4,7 @@
 		  <h1 id="logo"><%= link_to "Gustavo Guichard", root_path %></h1>
 	  	<ul>
 	  		<li<% if current_page? :root %> class="active"<% end %>><%= link_to "Home", root_path %></li>
-				<li<% if current_page? :portfolio %> class="active"<% end %>><%= link_to "Portfolio", portfolio_path %></li>
+				<li<% if current_page? :portfolio or params[:action] == "show" %> class="active"<% end %>><%= link_to "Portfolio", portfolio_path %></li>
 				<li<% if current_page? :services %> class="active"<% end %>><%= link_to "Services", services_path %></li>
 				<li<% if current_page? :contact or params[:action] == "send_mail" %> class="active"<% end %>><%= link_to "Contact", contact_path %></li>
 	  	</ul>

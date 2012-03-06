@@ -11,7 +11,7 @@
 				</address>
 			</section>
 			<section class="span3">
-				<%= form_tag root_path, :method => :get do %>
+				<%= form_tag portfolio_path, :method => :get do %>
 			    <%= text_field_tag :search, params[:search], :placeholder => "Search" %>
 				<% end %>
 				<aside id="social">
@@ -28,4 +28,11 @@
 </footer>
 <section id="copyright">
   &copy; Gustavo Guichard - <%= Date.today.year %> - all rights reserved
+  <div id="logout_control">
+  <% if @admin %>
+		Logado como Admin | <%= link_to "Logout", logout_path, class: "btn btn-mini" %>
+	<% else %>
+		<%= link_to "Login", login_path, class: "btn btn-mini" %>
+	<% end %>
+	</div>
 </section>

@@ -1,0 +1,35 @@
+<h1>Listing site_settings</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Intro text</th>
+    <th>Available</th>
+    <th>Footer intro</th>
+    <th>Footer contact</th>
+    <th>Contact info</th>
+    <th>Contact text</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @site_settings.each do |site_setting| %>
+  <tr>
+    <td><%= site_setting.name %></td>
+    <td><%= site_setting.intro_text %></td>
+    <td><%= site_setting.available %></td>
+    <td><%= site_setting.footer_intro %></td>
+    <td><%= site_setting.footer_contact %></td>
+    <td><%= site_setting.contact_info %></td>
+    <td><%= site_setting.contact_text %></td>
+    <td><%= link_to 'Show', site_setting %></td>
+    <td><%= link_to 'Edit', edit_site_setting_path(site_setting) %></td>
+    <td><%= link_to 'Destroy', site_setting, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Site setting', new_site_setting_path %>

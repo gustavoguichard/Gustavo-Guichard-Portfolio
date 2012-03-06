@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @site_setting.name %>
+</p>
+
+<p>
+  <b>Intro text:</b>
+  <%= @site_setting.intro_text %>
+</p>
+
+<p>
+  <b>Available:</b>
+  <%= @site_setting.available %>
+</p>
+
+<p>
+  <b>Footer intro:</b>
+  <%= @site_setting.footer_intro %>
+</p>
+
+<p>
+  <b>Footer contact:</b>
+  <%= @site_setting.footer_contact %>
+</p>
+
+<p>
+  <b>Contact info:</b>
+  <%= @site_setting.contact_info %>
+</p>
+
+<p>
+  <b>Contact text:</b>
+  <%= @site_setting.contact_text %>
+</p>
+
+
+<%= link_to 'Edit', edit_site_setting_path(@site_setting) %> |
+<%= link_to 'Back', site_settings_path %>

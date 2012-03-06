@@ -1,49 +1,40 @@
-<h2>Free Lancer Web Developer</h2>
-<section id="intro">
-<p>I’m a <strong>web designer</strong> and <strong>developer</strong> with 8 years of professional experience. I love <%= link_to "what I do", portfolio_path %>: spend my time between work, internet and trips, always looking forward to improve my cultural and <%= link_to "technical skills", services_path %>.</p>
+<section id="intro" class="row">
+	<article class="span6">
+		<h2>Free Lancer Web Developer</h2>
+		<p>I’m a <strong>web designer</strong> and <strong>developer</strong> with 8 years of professional experience. I love <%= link_to "what I do", portfolio_path %>: spend my time between work, internet and trips, always looking forward to improve my cultural and <%= link_to "technical skills", services_path %>.</p>
 
-<p>If you’re in need of an amazing website with cutting edge technology, or if you need an extra help on your project, don’t hesitate in <%= link_to "dropping me a line", contact_path %>.</p>
-<p><%= link_to "Available for Free Lance!", contact_path, :class => "btn hire" %></p>
-<%= image_tag "computador.png", :id => "home_img" %>
+		<p>If you’re in need of an amazing website with cutting edge technology, or if you need an extra help on your project, don’t hesitate in <%= link_to "dropping me a line", contact_path %>.</p>
+		<p><%= link_to "Available for Free Lance!", contact_path, :class => "btn hire btn-green" %></p>
+		<%= image_tag "computador.png", :id => "home_img" %>
+	</span>
 </section>
 <section id="testimonials">
 	<h2>Testimonials</h2>
 	<div class="row">
-	  <div class="span6">
-			<%= image_tag "testimonials/luciano.jpg" %>
-			<article class="testimonial">
-				<h4>Luciano Medina</h4>
-				<small><a href="http://sambaestudio.com.br" target="_blank">Samba Studio</a> - Owner</small>
-				<p><strong>Quality</strong> and <strong>punctuality</strong> in every job added to a notable personal quality – <strong>humbleness</strong> – makes  “Gus” an excellent work partner.</p>
-			</article>
+	<% @testimonials.each do |testimonial| %>
+		<div class="span6 testimonial_container">
+			<% if @admin %>
+				<% avatar_img = image_tag testimonial.avatar.url(:thumbnail) %>
+				<%= link_to avatar_img, testimonial %>
+				<%= content_tag "article", data: {object: testimonial}, class: "testimonial" do %>
+					<h4><%= testimonial.name %></h4>
+					<small><%= if testimonial.website then link_to testimonial.company, testimonial.website, target: "_blank" else testimonial.company end %><%= ' - ' + testimonial.job if testimonial.job.present? %></small>
+					<%= raw testimonial.content %>
+				<% end %>
+			<% else %>
+				<%= image_tag testimonial.avatar.url(:thumbnail) %>
+				<%= content_tag "article", class: "testimonial" do %>
+					<h4><%= testimonial.name %></h4>
+					<small><%= if testimonial.website then link_to testimonial.company, testimonial.website, target: "_blank" else testimonial.company end %><%= ' - ' + testimonial.job if testimonial.job.present? %></small>
+					<%= raw testimonial.content %>
+				<% end %>
+			<% end %>
 		</div>
-	  <div class="span6">
-	  	<%= image_tag "testimonials/andre.jpg" %>
-	  	<article class="testimonial">
-				<h4>André Saut</h4>
-				<small><a href="http://criaideias.com.br" target="_blank">Cria Ideias</a> - Partner in the firm</small>
-				<p>As calm as <strong>daring</strong>, he surfs through the digital marketing with mildness, <strong>confidence</strong> and <strong>proficiency</strong>. He is our web guy responsible for upload our animations, hot-sites, websites and other digital marketing tools.</p>
-			</article>
-	  </div>
-	</div>
-	<div class="row">
-	  <div class="span6">
-			<%= image_tag "testimonials/gisele.jpg" %>
-			<article class="testimonial">
-				<h4>Gisele de Menezes</h4>
-				<small><a href="http://giseledemenezes.com" target="_blank">Writer</a></small>
-				<p>Gustavo has been doing part of wich I consider complementing. If nowadays I’ve got people from the <strong>whole world</strong> that has known my work and <strong>captured</strong> my sensibility, I’d thank to few people and, one of them is <strong>my web designer</strong> of choice.</p>
-				<p>May he keep enlightening the <strong>best intentions</strong> from the good workers!</p>
-			</article>
-		</div>
-	  <div class="span6">
-	  	<%= image_tag "testimonials/joao.jpg" %>
-	  	<article class="testimonial">
-				<h4>João Batista</h4>
-				<small><a href="http://sitecompany.com.br" target="_blank">Site Company</a> - Owner</small>
-				<p>Some of the most important qualities that we judge in a professional is your <strong>commitment</strong> and <strong>responsability</strong> about the briefing definitions.</p>
-				<p>All of it we’ve found on Gustavo, in addition to his <strong>initiative</strong>, <strong>technical skill</strong> and respect for the client. We hope to count on this excellent professional in our future projects.</p>
-			</article>
-	  </div>
+	<% end %>
 	</div>
 </section>
+<% if @admin %>
+<div class="form-actions">
+  <%= link_to 'Novo Depoimento', new_testimonial_path, class: "btn btn-green" %>
+</div>
+<% end %>

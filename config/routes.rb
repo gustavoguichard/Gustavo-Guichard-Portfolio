@@ -1,13 +1,21 @@
 Gustavoguichard::Application.routes.draw do
+
+  resources :site_settings
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-  match '/send_mail/' => 'static_pages#send_mail', :as => :send_mail
-  match '/home/' => 'static_pages#home', :as => :home
-  match '/portfolio/' => 'static_pages#portfolio', :as => :portfolio
-  match '/services/' => 'static_pages#services', :as => :services
-  match '/contact/' => 'static_pages#contact', :as => :contact, :via => :get
-  match '/contact/' => 'static_pages#send_mail', :as => :messages, :via => :post
+  match '/send_mail/' => 'static_pages#send_mail', as: :send_mail
+  match '/home/' => 'static_pages#home', as: :home
+  match '/portfolio/' => 'projects#index', as: :portfolio
+  match '/contact/' => 'static_pages#contact', as: :contact, via: :get
+  match '/contact/' => 'static_pages#send_mail', as: :messages, via: :post
+  match '/projects/sort/' => 'projects#sort', as: :sort_projects, via: :post
+  match '/testimonials/sort/' => 'testimonials#sort', as: :sort_testimonials, via: :post
+  match '/services/sort/' => 'services#sort', as: :sort_services, via: :post
+  match '/login/' => 'sessions#new', as: :login
+  match '/session/new' => 'sessions#create', as: :sessions
+  match '/logout/' => 'sessions#destroy', as: :logout
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
@@ -44,7 +52,10 @@ Gustavoguichard::Application.routes.draw do
   #       get 'recent', :on => :collection
   #     end
   #   end
-
+  
+  resources :services
+  resources :testimonials
+  resources :projects
   # Sample resource route within a namespace:
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController

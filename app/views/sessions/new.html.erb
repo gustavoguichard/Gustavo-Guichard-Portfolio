@@ -1,0 +1,5 @@
+<h2>Efetuar Login</h2>
+<%= form_tag sessions_path, method: :post do %>
+	<%= password_field_tag :password, params[:password], placeholder: "Password" %><br />
+	<%= button_tag "Login!", class: "btn btn-green" %>
+<% end %>
