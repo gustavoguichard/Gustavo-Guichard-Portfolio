@@ -1,10 +1,9 @@
 <section id="intro" class="row">
 	<article class="span6">
-		<h2>Free Lancer Web Developer</h2>
-		<p>I’m a <strong>web designer</strong> and <strong>developer</strong> with 8 years of professional experience. I love <%= link_to "what I do", portfolio_path %>: spend my time between work, internet and trips, always looking forward to improve my cultural and <%= link_to "technical skills", services_path %>.</p>
-
-		<p>If you’re in need of an amazing website with cutting edge technology, or if you need an extra help on your project, don’t hesitate in <%= link_to "dropping me a line", contact_path %>.</p>
+		<%= raw @site_settings.intro_text %>
+		<% if @site_settings.available %>
 		<p><%= link_to "Available for Free Lance!", contact_path, :class => "btn hire btn-green" %></p>
+		<% end %>
 		<%= image_tag "computador.png", :id => "home_img" %>
 	</span>
 </section>
@@ -16,16 +15,16 @@
 			<% if @admin %>
 				<% avatar_img = image_tag testimonial.avatar.url(:thumbnail) %>
 				<%= link_to avatar_img, testimonial %>
-				<%= content_tag "article", data: {object: testimonial}, class: "testimonial" do %>
+				<%= content_tag "article", :data => {:object => testimonial}, :class =>  "testimonial" do %>
 					<h4><%= testimonial.name %></h4>
-					<small><%= if testimonial.website then link_to testimonial.company, testimonial.website, target: "_blank" else testimonial.company end %><%= ' - ' + testimonial.job if testimonial.job.present? %></small>
+					<small><%= if testimonial.website then link_to testimonial.company, testimonial.website, :target => "_blank" else testimonial.company end %><%= ' - ' + testimonial.job if testimonial.job.present? %></small>
 					<%= raw testimonial.content %>
 				<% end %>
 			<% else %>
 				<%= image_tag testimonial.avatar.url(:thumbnail) %>
-				<%= content_tag "article", class: "testimonial" do %>
+				<%= content_tag "article", :class => "testimonial" do %>
 					<h4><%= testimonial.name %></h4>
-					<small><%= if testimonial.website then link_to testimonial.company, testimonial.website, target: "_blank" else testimonial.company end %><%= ' - ' + testimonial.job if testimonial.job.present? %></small>
+					<small><%= if testimonial.website then link_to testimonial.company, testimonial.website, :target => "_blank" else testimonial.company end %><%= ' - ' + testimonial.job if testimonial.job.present? %></small>
 					<%= raw testimonial.content %>
 				<% end %>
 			<% end %>
@@ -35,6 +34,6 @@
 </section>
 <% if @admin %>
 <div class="form-actions">
-  <%= link_to 'Novo Depoimento', new_testimonial_path, class: "btn btn-green" %>
+  <%= link_to 'Novo Depoimento', new_testimonial_path, :class => "btn btn-green" %>
 </div>
 <% end %>

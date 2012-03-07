@@ -4,7 +4,7 @@
 <section id="services" class="row">
 <% @services.each do |service| %>
 	<% if @admin %>
-		<%= content_tag "article", data: {object: service}, class: "service span3" do %>
+		<%= content_tag "article", :data => {:object => service}, :class => "service span3" do %>
 			<%= image_tag service.image.url(:normal) %>
 			<h2><%= if @admin then link_to service.title, service else service.title end %></h2>
 			<p><%= service.content %></p>
@@ -22,6 +22,6 @@
 </section>
 <% if @admin %>
 <div class="form-actions">
-  <%= link_to 'Novo Serviço', new_service_path, class: "btn btn-green" %>
+  <%= link_to 'Novo Serviço', new_service_path, :class => "btn btn-green" %>
 </div>
 <% end %>

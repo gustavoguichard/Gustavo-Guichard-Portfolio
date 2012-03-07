@@ -3,7 +3,10 @@ class ApplicationController < ActionController::Base
   before_filter :is_admin
 
   def is_admin
-  	@admin = session[:password] == "portugaL2013"
+  	@site_settings = SiteSetting.first
+  	if @site_settings.nil? then @admin
+	  else @admin = session[:nickname] == "gustavoguichard"
+	  end
   end
 
   def protect_admin

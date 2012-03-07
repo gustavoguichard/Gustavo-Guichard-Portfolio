@@ -1,7 +1,8 @@
 <%= form_for(@site_setting) do |f| %>
   <% if @site_setting.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@site_setting.errors.count, "error") %> prohibited this site_setting from being saved:</h2>
+   <div class="alert alert-error">
+    <a class="close" data-dismiss="alert">&times;</a>
+      <h4 class="alert-heading">><%= pluralize(@site_setting.errors.count, "error") %> prohibited this site_setting from being saved:</h4>
 
       <ul>
       <% @site_setting.errors.full_messages.each do |msg| %>
@@ -11,35 +12,57 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :intro_text %><br />
-    <%= f.text_area :intro_text %>
-  </div>
-  <div class="field">
-    <%= f.label :available %><br />
-    <%= f.check_box :available %>
-  </div>
-  <div class="field">
-    <%= f.label :footer_intro %><br />
-    <%= f.text_area :footer_intro %>
-  </div>
-  <div class="field">
-    <%= f.label :footer_contact %><br />
-    <%= f.text_area :footer_contact %>
-  </div>
-  <div class="field">
-    <%= f.label :contact_info %><br />
-    <%= f.text_area :contact_info %>
-  </div>
-  <div class="field">
-    <%= f.label :contact_text %><br />
-    <%= f.text_area :contact_text %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <legend>Configurações</legend>
+    <div class="control-group">
+      <%= f.label "Nome do site", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :name, :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label "Senha", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.password_field :password, :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label "Disponível para Freela", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.check_box :available, :class => 'text_field', :rows => 4 %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :intro_text, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :intro_text, :class => 'text_field span8', :rows => 4 %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :footer_intro, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :footer_intro, :class => 'text_field span8', :rows => 4 %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :footer_contact, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :footer_contact, :class => 'text_field span8', :rows => 4 %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :contact_info, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :contact_info, :class => 'text_field span8', :rows => 4 %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :contact_text, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :contact_text, :class => 'text_field span8', :rows => 4 %>
+      </div>
+    </div>
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn' %>
+    </div>
+  </fieldset>
 <% end %>

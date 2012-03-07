@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120305085604) do
+ActiveRecord::Schema.define(:version => 20120306100834) do
 
   create_table "friendly_id_slugs", :force => true do |t|
     t.string   "slug",                         :null => false
@@ -51,6 +51,19 @@ ActiveRecord::Schema.define(:version => 20120305085604) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "site_settings", :force => true do |t|
+    t.string   "name"
+    t.text     "intro_text"
+    t.boolean  "available"
+    t.text     "footer_intro"
+    t.text     "footer_contact"
+    t.text     "contact_info"
+    t.text     "contact_text"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "password"
   end
 
   create_table "taggings", :force => true do |t|

@@ -2,12 +2,11 @@
 	<div class='container'>
 		<div class="row">
 			<section class="span4">
-				<p>I'm fun to work with, if you want to improve your online business or launch an idea, just <%= link_to "get in touch", contact_path %>.</p>
+				<%= raw @site_settings.footer_intro %>
 			</section>
 			<section class="span5">
 				<address>
-					<span>Skype:</span> <a href="skype:gustavo.guichard" rel="tooltip" title="Add as a contact">gustavo.guichard</a><br />
-					<span>Email:</span> <a href="mailto:talk@gustavoguichard.com" rel="tooltip" title="Send with your email client">talk[at]gustavoguichard.com</a>
+					<%= raw @site_settings.footer_contact %>
 				</address>
 			</section>
 			<section class="span3">
@@ -30,9 +29,11 @@
   &copy; Gustavo Guichard - <%= Date.today.year %> - all rights reserved
   <div id="logout_control">
   <% if @admin %>
-		Logado como Admin | <%= link_to "Logout", logout_path, class: "btn btn-mini" %>
+		Logado como Admin | <%= link_to "Admin", admin_path, :class =>  "btn btn-mini" %> | <%= link_to "Logout", logout_path, :class =>  "btn btn-mini" %>
 	<% else %>
-		<%= link_to "Login", login_path, class: "btn btn-mini" %>
+		<%= content_tag 'a', :class => 'btn btn-mini btn-info', :href => '/auth/twitter' do %>
+			<i class="icon-user"></i>Login
+		<% end %>
 	<% end %>
 	</div>
 </section>

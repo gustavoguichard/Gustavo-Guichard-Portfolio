@@ -1,6 +1,6 @@
 <h1><%= link_to 'Services:', services_path%> <%= best_in_place @service, :title %></h1>
 <p>
-  <%= best_in_place @service, :content, type: :textarea %>
+  <%= best_in_place @service, :content, :type => :textarea %>
 </p>
 <p>
   <%= image_tag @service.image.url(:normal) %>
@@ -8,11 +8,11 @@
 <%= form_for @service do |f| %>
   <div class="control-group">
     <div class="controls">
-      <%= f.file_field :image, class: 'text_field' %>
+      <%= f.file_field :image, :class => 'text_field' %>
     </div>
   </div>
   <div class="form-actions">
-    <%= f.submit nil, class: 'btn' %>
+    <%= f.submit nil, :class => 'btn' %>
      <%= link_to 'Delete', service_path(@service), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
   </div>
 <% end %>

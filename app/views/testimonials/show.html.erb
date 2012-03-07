@@ -17,15 +17,15 @@
 <p>
   <b>Content</b>
 </p>
-<%= best_in_place @testimonial, :content, type: :textarea, sanitize: false %>
+<%= best_in_place @testimonial, :content, :type => :textarea, :sanitize => false %>
 <p>
   <%= image_tag @testimonial.avatar.url(:thumbnail) %>
 </p>
 
 <%= form_for @testimonial do |f| %>
-  <%= f.file_field :avatar, class: 'text_field' %>
+  <%= f.file_field :avatar, :class => 'text_field' %>
 <div class="form-actions">
-  <%= f.submit nil, class: 'btn' %>
+  <%= f.submit nil, :class => 'btn' %>
   <%= link_to 'Delete', testimonial_path(@testimonial), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
 </div>
 <% end %>

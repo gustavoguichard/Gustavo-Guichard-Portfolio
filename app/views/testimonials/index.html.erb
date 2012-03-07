@@ -13,7 +13,7 @@
     <% @testimonials.each do |testimonial| %>
       <tr>
         <td><%= testimonial.name %></td>
-        <td><%= if testimonial.website then link_to testimonial.company, testimonial.website, target: "_blank" else testimonial.company end %><%= ' - ' + testimonial.job if testimonial.job.present? %></td>
+        <td><%= if testimonial.website then link_to testimonial.company, testimonial.website, :target => "_blank" else testimonial.company end %><%= ' - ' + testimonial.job if testimonial.job.present? %></td>
         <td><%= raw testimonial.content %></td>
         <td><% avatar_image = image_tag testimonial.avatar.url(:thumbnail) %>
           <%= link_to avatar_image, testimonial %>

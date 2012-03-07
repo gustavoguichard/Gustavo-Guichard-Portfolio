@@ -13,15 +13,15 @@
 		<% if @admin %>
 		<h2><%= best_in_place @project, :title %></h2>
 		<small><%= best_in_place @project, :tag_names %></small>
-		<%= best_in_place @project, :content, type: :textarea, sanitize: false %>
+		<%= best_in_place @project, :content, :type => :textarea, :sanitize => false %>
 		<p><%= best_in_place @project, :visit_url %></p>
 		<p><%= best_in_place @project, :video_url %></p>
 		<%= form_for(@project) do |f| %>
 			<div class="form-inputs">
-				<%= f.file_field :image, class: "span4" %>
+				<%= f.file_field :image, :class => "span4" %>
 		  </div>
 		  <div class="form-actions">
-		    <%= f.button "Atualizar!", class: "btn" %>
+		    <%= f.button "Atualizar!", :class => "btn" %>
 		  </div>
 			<% end %>
 		<% else %>
@@ -29,6 +29,6 @@
 		<small><%= @project.tag_names %></small>
 		<p><%= raw @project.content %></p>
 		<% end %>
-		<%= link_to "Visit this project", @project.visit_url, class: "btn btn-green" unless @project.visit_url.empty? %>
+		<%= link_to "Visit this project", @project.visit_url, :class => "btn btn-green" unless @project.visit_url.empty? %>
 	</aside>
 </article>

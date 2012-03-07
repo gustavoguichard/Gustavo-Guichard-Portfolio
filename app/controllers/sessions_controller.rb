@@ -2,7 +2,8 @@ class SessionsController < ApplicationController
 	def new
 	end
 	def create
-		session[:password] = params[:password]
+		auth = request.env["omniauth.auth"]
+		session[:nickname] = auth["info"]["nickname"]
 		flash[:notice] = "Sucessfully logged in"
 		redirect_to root_path
 	end

@@ -3,11 +3,11 @@ class TestimonialsController < ApplicationController
   # GET /testimonials
   # GET /testimonials.json
   def index
-    @testimonials = Testimonial.all(order: "position")
+    @testimonials = Testimonial.all(:order => "position")
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @testimonials }
+      format.json { render :json => @testimonials }
     end
   end
 
@@ -18,7 +18,7 @@ class TestimonialsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @testimonial }
+      format.json { render :json => @testimonial }
     end
   end
 
@@ -29,7 +29,7 @@ class TestimonialsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @testimonial }
+      format.json { render :json => @testimonial }
     end
   end
 
@@ -46,11 +46,11 @@ class TestimonialsController < ApplicationController
 
     respond_to do |format|
       if @testimonial.save
-        format.html { redirect_to @testimonial, notice: 'Testimonial was successfully created.' }
-        format.json { render json: @testimonial, status: :created, location: @testimonial }
+        format.html { redirect_to @testimonial, :notice => 'Testimonial was successfully created.' }
+        format.json { render :json => @testimonial, :status => :created, :location => @testimonial }
       else
-        format.html { render action: "new" }
-        format.json { render json: @testimonial.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @testimonial.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -62,11 +62,11 @@ class TestimonialsController < ApplicationController
 
     respond_to do |format|
       if @testimonial.update_attributes(params[:testimonial])
-        format.html { redirect_to @testimonial, notice: 'Testimonial was successfully updated.' }
+        format.html { redirect_to @testimonial, :notice => 'Testimonial was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @testimonial.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @testimonial.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -88,7 +88,7 @@ class TestimonialsController < ApplicationController
     params[:testimonials].each_with_index do |testimonial, index|
       Testimonial.update_all(['position=?', index+1], ['id=?', testimonial[1]["id"]])
     end
-    render nothing: true
+    render :nothing => true
   end
 
 end

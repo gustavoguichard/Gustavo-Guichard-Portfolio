@@ -1,4 +1,5 @@
 class SiteSettingsController < ApplicationController
+  before_filter :protect_admin
   # GET /site_settings
   # GET /site_settings.json
   def index
@@ -6,7 +7,7 @@ class SiteSettingsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @site_settings }
+      format.json { render :json => @site_settings }
     end
   end
 
@@ -17,7 +18,7 @@ class SiteSettingsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @site_setting }
+      format.json { render :json => @site_setting }
     end
   end
 
@@ -28,13 +29,13 @@ class SiteSettingsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @site_setting }
+      format.json { render :json => @site_setting }
     end
   end
 
   # GET /site_settings/1/edit
   def edit
-    @site_setting = SiteSetting.find(params[:id])
+    @site_setting = @site_settings
   end
 
   # POST /site_settings
@@ -44,11 +45,11 @@ class SiteSettingsController < ApplicationController
 
     respond_to do |format|
       if @site_setting.save
-        format.html { redirect_to @site_setting, notice: 'Site setting was successfully created.' }
-        format.json { render json: @site_setting, status: :created, location: @site_setting }
+        format.html { redirect_to root_path, :notice => 'Site setting was successfully created.' }
+        format.json { render :json => @site_setting, :status => :created, :location => @site_setting }
       else
-        format.html { render action: "new" }
-        format.json { render json: @site_setting.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @site_setting.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -60,11 +61,11 @@ class SiteSettingsController < ApplicationController
 
     respond_to do |format|
       if @site_setting.update_attributes(params[:site_setting])
-        format.html { redirect_to @site_setting, notice: 'Site setting was successfully updated.' }
+        format.html { redirect_to root_path, :notice => 'Site setting was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @site_setting.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json =>  @site_setting.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -80,4 +81,5 @@ class SiteSettingsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 end
