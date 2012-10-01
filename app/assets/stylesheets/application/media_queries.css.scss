@@ -74,6 +74,10 @@
 			width: 270px;
 		}
 	}
+
+	.image_portfolio::after{
+		display: none;
+	}
 }
 
 @media (max-width: 979px) and (min-width: 768px) {
@@ -82,8 +86,11 @@
   }
 
   #intro img#home_img{
-		top: 40px;
+		top: 240px;
 		right: -100px;
+	}
+	.image_portfolio::after{
+		display: none;
 	}
 }
 
@@ -92,7 +99,7 @@
 
 	#intro img#home_img{
 		width: 740px;
-		top: -80px;
+		top: 0px;
 	}
 	.hr{
 		margin-left: auto;

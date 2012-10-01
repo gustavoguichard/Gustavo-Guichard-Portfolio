@@ -14,9 +14,7 @@
 <aside class="span4">
 	<h3>Contact Info</h3>
 	<address>
-		<span>Phone:</span> +55-51-3333-3333<br />
-		<span>Skype:</span> <a href="skype:gustavo.guichard" rel="tooltip" title="Add as a contact">gustavo.guichard</a><br />
-		<span>Email:</span> <a href="mailto:talk@gustavoguichard.com" rel="tooltip" title="Send with your email client">talk[at]gustavoguichard.com</a>
+		<%= raw @site_settings.contact_info if @site_settings %>
 	</address>
 </aside>
 </section>

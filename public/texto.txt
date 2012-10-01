@@ -1,0 +1,12 @@
+I deliver results through code. Just like that. If you are a designer, an agency, someone creative or you just need an amazing web site, I can build/finish it. Even being also a designer I have some co-workers to and I'll do what's necessary to deliver your web site/app/facebook app/stuff without compromising your deadline.
+
+And I'll do it putting all the new web technologies and the cutting edge stuff, like HTML5, JS, CSS3, Ruby on Rails, Wordpress, multi-device support and SEO. So, do you wanna put that project in the internet? Talk to me!
+
+
+
+Eu entrego resultados através de código. Simples assim. Se você é um designer, uma agência, alguém criativo ou se você apenas precisa de um site incrível, eu posso desenvolver / terminá-lo. Mesmo sendo também um designer eu tenho alguns co-workers e eu vou fazer o que for necessário para entregar o seu site / app / facebook app / material sem comprometer o seu prazo.
+
+E eu vou fazê-lo colocando todas as novas tecnologias da web e as coisas de ponta, como HTML5, JS, CSS3, Ruby on Rails, Wordpress, suporte multi-dispositivo e SEO. Então, você quer colocar esse projeto na internet? Fale comigo!
+
+<p>I’m a <strong>web designer</strong> and <strong>developer</strong> with 8 years of professional experience. I love <a href='/portfolio/' rel='tooltip' title="Portfolio">what I do</a>: spending my time between work, internet and trips, always looking forward to improving my <a href='/services/' rel='tooltip' title="Services Page">technical skills</a> and knowledge of cultures.</p>
+<p>If you’re in need of an amazing website with cutting edge technology, or if you need an extra help on your project, don’t hesitate in <a href='/contact/' rel='tooltip' title="Contact Page">dropping me a line</a>.</p>

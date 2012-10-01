@@ -1,7 +1,6 @@
 class StaticPagesController < ApplicationController
 	def home
 		@testimonials = Testimonial.all(:order => "position")
-		@settings = SiteSetting.first
 	end
 
 	def contact

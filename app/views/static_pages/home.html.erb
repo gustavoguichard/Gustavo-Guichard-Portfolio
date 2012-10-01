@@ -1,7 +1,7 @@
 <section id="intro" class="row">
 	<article class="span6">
-		<%= raw @site_settings.intro_text %>
-		<% if @site_settings.available %>
+		<%= raw @site_settings.intro_text if @site_settings %>
+		<% if @site_settings && @site_settings.available %>
 		<p><%= link_to "Available for Free Lance!", contact_path, :class => "btn hire btn-green" %></p>
 		<% end %>
 		<%= image_tag "computador.png", :id => "home_img" %>

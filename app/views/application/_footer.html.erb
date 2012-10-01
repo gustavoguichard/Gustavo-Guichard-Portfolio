@@ -2,11 +2,11 @@
 	<div class='container'>
 		<div class="row">
 			<section class="span4">
-				<%= raw @site_settings.footer_intro %>
+				<%= raw @site_settings.footer_intro if @site_settings %>
 			</section>
 			<section class="span5">
 				<address>
-					<%= raw @site_settings.footer_contact %>
+					<%= raw @site_settings.footer_contact if @site_settings %>
 				</address>
 			</section>
 			<section class="span3">
