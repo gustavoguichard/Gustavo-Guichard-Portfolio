@@ -1,0 +1,20 @@
+- if @admin
+  = javascript_include_tag "admin"
+- else 
+  = javascript_include_tag "application"
+
+= yield :scripts
+
+- if !google_account_id.blank?
+  javascript:
+    //<![CDATA[
+      var _gaq=[['_setAccount','<%= google_account_id %>'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+    //]]>
+
+<!--[if lt IE 7 ]>
+  <script defer src='//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js'></script>
+  <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+<![endif]-->

@@ -3,6 +3,15 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.8'
 gem 'pg'
 
+# Template language
+gem 'slim'
+gem 'slim-rails'
+gem 'simple_form'
+
+group :development do
+  gem 'quiet_assets'
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -20,5 +29,10 @@ gem 'jquery-rails'
 gem 'html5-rails'
 gem 'twitter-bootstrap-rails'
 gem 'best_in_place'
-gem 'paperclip', '~> 2.7'
 gem 'friendly_id'
+
+# Upload de imagem
+gem 'carrierwave'
+gem 'carrierwave-postgresql'
+gem 'postgresql_lo_streamer', git: 'git://github.com/diogob/postgresql_lo_streamer.git'
+gem 'mini_magick'
