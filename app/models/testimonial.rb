@@ -1,3 +1,4 @@
 class Testimonial < ActiveRecord::Base
-	validates :name, :company, :content, :presence => true
+	validates :name, :company, :content, :avatar, :presence => true
+  mount_uploader :avatar, TestimonialUploader
 end

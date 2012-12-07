@@ -1,3 +1,4 @@
 class Service < ActiveRecord::Base
-	validates :title, :content, :presence => true
+	validates :title, :content, :image, :presence => true
+  mount_uploader :image, ServiceUploader
 end

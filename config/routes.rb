@@ -23,6 +23,11 @@ Gustavoguichard::Application.routes.draw do
   resources :testimonials
   resources :projects
 
+  # Retrieve images from database
+  mount PostgresqlLoStreamer::Engine => "/project_image"
+  mount PostgresqlLoStreamer::Engine => "/service_image"
+  mount PostgresqlLoStreamer::Engine => "/testimonial_avatar"
+
   root :to => 'static_pages#home'
 
 end

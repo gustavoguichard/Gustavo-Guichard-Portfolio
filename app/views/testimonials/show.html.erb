@@ -19,7 +19,7 @@
 </p>
 <%= best_in_place @testimonial, :content, :type => :textarea, :sanitize => false %>
 <p>
-  <%= image_tag @testimonial.avatar.url(:thumbnail) %>
+  <%= image_tag @testimonial.avatar %>
 </p>
 
 <%= form_for @testimonial do |f| %>

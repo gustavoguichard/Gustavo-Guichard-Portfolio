@@ -5,7 +5,7 @@
     = f.input :content, label: "Descrição: ", required: false, input_html: {class: "span8", rows: 4}
     = f.input :tag_names, label: "Tags: ", input_html: {class: "span8"}
     = f.input :visit_url, label: "Link: ", input_html: {class: "span8"}
-    = f.input :image, label: "Thumb: ", input_html: {class: "span4"}
+    = f.input :image, label: "Thumb: ", input_html: {class: "span4"}, as: 'file'
     = f.input :video_url, label: "Video: ", input_html: {class: "span4"}
   
   .form-actions

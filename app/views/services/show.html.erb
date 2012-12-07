@@ -3,7 +3,7 @@
   <%= best_in_place @service, :content, :type => :textarea %>
 </p>
 <p>
-  <%= image_tag @service.image.url(:normal) %>
+  <%= image_tag @service.image %>
 </p>
 <%= form_for @service do |f| %>
   <div class="control-group">

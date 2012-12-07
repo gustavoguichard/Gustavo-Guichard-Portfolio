@@ -13,7 +13,7 @@
 	<% @testimonials.each do |testimonial| %>
 		<div class="span6 testimonial_container">
 			<% if @admin %>
-				<% avatar_img = image_tag testimonial.avatar.url(:thumbnail) %>
+				<% avatar_img = image_tag testimonial.avatar %>
 				<%= link_to avatar_img, testimonial %>
 				<%= content_tag "article", :data => {:object => testimonial}, :class =>  "testimonial" do %>
 					<h4><%= testimonial.name %></h4>

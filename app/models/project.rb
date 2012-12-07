@@ -5,12 +5,13 @@ class Project < ActiveRecord::Base
 
 	has_many :taggings, :dependent => :destroy
 	has_many :tags, :through => :taggings
-	validates :title, :content, :presence => true
+	validates :title, :content, :image, :presence => true
 	attr_writer :tag_names
 	after_save :assign_tags, :destroy_empty_tags
 	after_destroy :destroy_empty_tags
 
-	
+	mount_uploader :image, ProjectUploader
+
 	def tag_names
 		@tag_names || tags.map(&:name).join(', ').titleize
 	end
