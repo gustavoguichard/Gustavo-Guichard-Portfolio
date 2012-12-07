@@ -1,0 +1,5 @@
+development: &defaults
+  TWITTER_USERNAME: 'gustavoguichard'
+test: &development
+  <<: *defaults  
+production:

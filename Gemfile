@@ -1,14 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.1'
-
-group :development, :test do
-	gem 'sqlite3'
-end
-
-group :production do
-	gem 'mysql2'
-end
+gem 'rails', '3.2.8'
+gem 'pg'
 
 # Gems used only for assets and not required
 # in production environments by default.

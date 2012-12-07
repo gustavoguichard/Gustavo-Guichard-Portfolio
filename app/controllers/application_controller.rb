@@ -6,8 +6,9 @@ class ApplicationController < ActionController::Base
     @site_settings = SiteSetting.first
     if @site_settings.nil? then
       @admin = true
+      @site_settings = SiteSetting.new
     else
-      @admin = session[:nickname] == "gustavoguichard"
+      @admin = session[:nickname] == ENV['TWITTER_USERNAME']
     end
   end
 
