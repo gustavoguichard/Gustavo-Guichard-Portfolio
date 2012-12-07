@@ -13,3 +13,25 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore database settings, Heroku understands...
+/config/database.yml
+
+# Ignore compiled CSS's
+/public/stylesheets
+/.sass-cache
+
+# Ignore image uploads, should they exist
+/public/uploads
+
+# Ignore schema.rb
+/db/schema.rb
+public/uploads_development
+public/uploads_test
+
+.DS_Store
+tags
+*.swp
+.jhw-cache/
+.rvmrc
+zeus.json
