@@ -21,7 +21,7 @@
 					<%= raw testimonial.content %>
 				<% end %>
 			<% else %>
-				<%= image_tag testimonial.avatar.url(:thumbnail) %>
+				<%= image_tag testimonial.avatar %>
 				<%= content_tag "article", :class => "testimonial" do %>
 					<h4><%= testimonial.name %></h4>
 					<small><%= if testimonial.website then link_to testimonial.company, testimonial.website, :target => "_blank" else testimonial.company end %><%= ' - ' + testimonial.job if testimonial.job.present? %></small>
