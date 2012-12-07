@@ -1,10 +1,6 @@
 class Project < ActiveRecord::Base
 	extend FriendlyId
 
-	has_attached_file :image, :styles => {:thumbnail => "218x158#", :big => "600x436>"},
-										:url => "/assets/images/portfolio/:style/:basename.:extension",
-										:path => ":rails_root/public/assets/images/portfolio/:style/:basename.:extension"
-	
 	friendly_id :title, :use => [:slugged, :history]
 
 	has_many :taggings, :dependent => :destroy
@@ -14,10 +10,7 @@ class Project < ActiveRecord::Base
 	after_save :assign_tags, :destroy_empty_tags
 	after_destroy :destroy_empty_tags
 
-	validates_attachment_presence :image
-	validates_attachment_size :image, :less_than => 5.megabytes
-	validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png']
-
+	
 	def tag_names
 		@tag_names || tags.map(&:name).join(', ').titleize
 	end

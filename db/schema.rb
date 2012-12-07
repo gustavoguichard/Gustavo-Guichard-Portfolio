@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120306100834) do
+ActiveRecord::Schema.define(:version => 20121207184251) do
 
   create_table "friendly_id_slugs", :force => true do |t|
     t.string   "slug",                         :null => false
@@ -28,15 +28,12 @@ ActiveRecord::Schema.define(:version => 20120306100834) do
     t.string   "title"
     t.text     "content"
     t.string   "visit_url"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.integer  "position"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
     t.string   "slug"
     t.string   "video_url"
+    t.integer  "image",      :null => false
   end
 
   add_index "projects", ["slug"], :name => "index_projects_on_slug"
@@ -45,12 +42,9 @@ ActiveRecord::Schema.define(:version => 20120306100834) do
     t.string   "title"
     t.text     "content"
     t.integer  "position"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "image",      :null => false
   end
 
   create_table "site_settings", :force => true do |t|
@@ -88,13 +82,10 @@ ActiveRecord::Schema.define(:version => 20120306100834) do
     t.string   "job"
     t.string   "website"
     t.text     "content"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.integer  "position"
+    t.integer  "avatar",     :null => false
   end
 
 end
