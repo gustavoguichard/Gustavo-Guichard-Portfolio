@@ -1,0 +1,13 @@
+= simple_form_for @testimonial do |f|
+  = f.error_notification
+  fieldset
+    legend Novo Testimonial
+    = f.input :name, input_html: {class: "span4"}
+    = f.input :company, input_html: {class: "span4"}
+    = f.input :job, input_html: {class: "span4"}
+    = f.input :website, input_html: {class: "span4"}
+    = f.input :content, input_html: {class: "span8", rows: 4}
+    = f.input :avatar, as: 'file', input_html: {class: "span4"}
+    .form-actions
+      = f.submit "Criar!", class: "btn"
+      = link_to 'Cancel', testimonials_path, class: 'btn'

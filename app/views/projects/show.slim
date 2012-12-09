@@ -11,16 +11,16 @@ article.row
     - if @admin
       h2= best_in_place @project, :title
       small= best_in_place @project, :tag_names
-      = best_in_place @project, :content, :type => :textarea, :sanitize => false
+      = best_in_place @project, :content, type: :textarea, sanitize: false
       p= best_in_place @project, :visit_url
       p= best_in_place @project, :video_url
       = form_for(@project) do |f|
         .form-inputs
-          = f.file_field :image, :class => "span4"
+          = f.file_field :image, class: "span4"
         .form-actions
-          = f.button "Atualizar!", :class => "btn"
+          = f.button "Atualizar!", class: "btn"
     - else
       h2= @project.title
       small= @project.tag_names
       p= raw @project.content
-    = link_to "Visit this project", @project.visit_url, :class => "btn btn-green" unless @project.visit_url.empty?
+    = link_to "Visit this project", @project.visit_url, class: "btn btn-green" unless @project.visit_url.empty?

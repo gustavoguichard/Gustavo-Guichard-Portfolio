@@ -2,19 +2,7 @@
 h2 Services
 hr/
 section#services.row
-  - @services.each do |service|
-    - if @admin
-      = content_tag "article", data: {object: service}, class: "service span3" do
-        = image_tag service.image
-        h2= if @admin then link_to service.title, service else service.title end
-        p= service.content
-        = link_to 'x', service_path(service), method: 'delete', confirm: 'Are you sure?', class: 'btn btn-danger btn-mini' if @admin
-    - else
-      article.service.span3
-        = image_tag service.image
-        h2= if @admin then link_to service.title, service else service.title end
-        p= service.content
-        = link_to 'x', service_path(service), method: 'delete', confirm: 'Are you sure?', class: 'btn btn-danger btn-mini' if @admin
+  = render @services
 - if @admin
   .form-actions
     = link_to 'Novo Serviço', new_service_path, class: "btn btn-green"

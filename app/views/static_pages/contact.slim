@@ -1,0 +1,14 @@
+- title "Contact me"
+h2 Contact me
+hr/
+section.row
+  #contact_form.span8
+    = simple_form_for @message do |f|
+      = f.input :name, label: false, input_html: {class: "span4"}, placeholder: "Name"
+      = f.input :email, label: false, input_html: {class: "span4"}, placeholder: "Email"
+      = f.input :body, label: false, as: "text", input_html: {class: "span8", rows: "4"}, placeholder: "Message"
+      = f.submit "Send it!", class: "btn btn-green"
+  aside.span4
+    h3 Contact Info
+    address
+      = raw @site_settings.contact_info if @site_settings
