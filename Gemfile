@@ -8,6 +8,8 @@ gem 'slim'
 gem 'slim-rails'
 gem 'simple_form'
 
+gem 'google-analytics-rails'
+
 group :development do
   gem 'quiet_assets'
 end
@@ -18,7 +20,6 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'compass-rails'
-  gem 'compass-h5bp'
   gem 'semantic-mixins'
   gem 'uglifier', '>= 1.0.3'
 end
@@ -26,7 +27,6 @@ end
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'jquery-rails'
-gem 'html5-rails'
 gem 'twitter-bootstrap-rails'
 gem 'best_in_place'
 gem 'friendly_id'

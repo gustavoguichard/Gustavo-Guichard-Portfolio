@@ -1,0 +1,76 @@
+@media (max-width: 540px)
+  #header
+    padding-bottom: 5px
+    
+    h1#logo a
+      left: -29px
+      top: -42px
+    .menu_top
+      height: auto
+      background: none
+
+      nav ul
+        float: none
+
+        li
+          float: none
+          margin-top: 5px
+
+          a
+            display:block
+            background: rgba(0,0,0,.4)
+            text-align:center
+            border: 1px solid #444
+
+            &:hover
+              background: rgba(0,0,0,.7)
+
+          &.active a, a:active
+            background: rgba(0,0,0,.8)
+  #main.container
+    padding-top: 30px
+
+@media (max-width: 767px) 
+  #portfolio .portfolio_item .btn-danger
+    left: 195px
+    right:auto
+
+  #main.container
+    
+    article.service
+      width: 300px
+      float: left
+
+    #intro img#home_img
+      display: none
+
+  #testimonials
+    img
+      width: 70px
+    .testimonial p
+      width: 270px
+
+  .image_portfolio::after
+    display: none
+
+@media (max-width: 979px) and (min-width: 768px) 
+  article.portfolio_item::after
+    display: none !important
+
+  #intro img#home_img
+    top: 240px
+    right: -100px
+  .image_portfolio::after
+    display: none
+
+@media (min-width: 1200px) 
+  #intro img#home_img
+    width: 740px
+    top: 0px
+  .hr
+    margin-left: auto
+    margin-right: auto
+    width: 941px !important
+
+  #portfolio .portfolio_item .btn-danger
+    right: 55px
