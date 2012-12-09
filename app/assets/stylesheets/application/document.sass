@@ -1,4 +1,7 @@
 +css-techniques
++selection
+  background: #4a4879
+  color: white
 
 body  
   background: image-url("body_bg.jpg") repeat
@@ -67,6 +70,11 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
   min-height: 350px
   text-shadow: 0 1px 1px white
   overflow: hidden
+  +decorative-content
+    +image-replace("watercolor.jpg")
+    top: 30px
+    right: -140px
+    z-index: -10
 
   .btn.btn-green 
     font-family: Damion, cursive
@@ -93,17 +101,12 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
 
     &.hire 
       padding-right: 20px
-      &::after 
-        content: ""
-        display: block
-        width: 48px
-        height: 49px
-        background: image-url("hire_tag.png") no-repeat center
-        position: absolute
+      +decorative-content
+        +image-replace("hire_tag.png")
         top: -6px
         right: -6px
 
-  .hr 
+  .hr
     display: block
     width: 100%
     background: image-url("hr_bg.png") no-repeat left center
@@ -111,19 +114,7 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
     margin-top: 12px
 
     hr 
-      position: absolute
-      left: -999em
-
-  &::after 
-    content: ""
-    display: block
-    height: 480px
-    width: 720px
-    background: image-url("watercolor.jpg") no-repeat center
-    position: absolute
-    top: 30px
-    right: -140px
-    z-index: -10
+      display: none
 
   input, textarea 
     font-family: Georgia, serif
@@ -194,6 +185,11 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
     position: relative
     margin-bottom: 18px
     height: 210px
+    +decorative-content
+      top: -2px
+      left: -15px
+      z-index: -5
+      +image-replace("shadows/shadow1.png")
 
     img 
       margin-bottom: 5px
@@ -211,17 +207,6 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
       right: 5px
       color: white
       font-family: Doppio, sans-serif
-
-    &::after 
-      content: ""
-      display: block
-      height: 183px
-      width: 250px
-      position: absolute
-      top: -2px
-      left: -15px
-      z-index: -5
-      background: image-url("shadows/shadow1.png") no-repeat center top
     
     &.shadow1::after
       background-image: image-url("shadows/shadow1.png")
@@ -239,21 +224,16 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
 .image_portfolio 
   position: relative
   padding-bottom: 40px
+  +decorative-content
+    +image-replace("shadows/shadow_big.png")
+    top: 148px
+    left: -26px
+    z-index: -5
 
   img 
     border: 1px solid #a0a0a0
     border-radius: 3px
 
-  &::after 
-    content: ""
-    display: block
-    width: 653px
-    height: 349px
-    background: image-url("shadows/shadow_big.png") no-repeat center
-    position: absolute
-    top: 148px
-    left: -26px
-    z-index: -5
 
 #services 
   .service 
@@ -303,6 +283,7 @@ footer#footer
   float: left
   clear: both
   width: 100%
+  +placeholder-color(#787878)
 
   input 
     +border-radius(1px)
@@ -311,10 +292,6 @@ footer#footer
     +box-shadow(0 1px 3px rgba(0,0,0,.6) inset)
     color: #aaa
 
-  ::-webkit-input-placeholder
-    color: #787878
-  ::-moz-placeholder
-    color: #787878
 
   #social 
     position: relative
