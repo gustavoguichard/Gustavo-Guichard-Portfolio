@@ -23,11 +23,11 @@ test:
   min_messages: WARNING
   host: localhost
 
-production:
-  adapter: mysql2
-  encoding: utf8
-  database: gustavog_portfolio
-  pool: 5
-  username: gustavog_port
-  password: portugaL2013
-  host: localhost
+# production:
+#   adapter: mysql2
+#   encoding: utf8
+#   database: gustavog_portfolio
+#   pool: 5
+#   username: gustavog_port
+#   password: portugaL2013
+#   host: localhost
