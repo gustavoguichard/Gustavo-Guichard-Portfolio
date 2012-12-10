@@ -24,6 +24,7 @@ Gustavoguichard::Application.routes.draw do
   resources :projects
 
   # Retrieve images from database
+  mount PostgresqlLoStreamer::Engine => "/project_thumb"
   mount PostgresqlLoStreamer::Engine => "/project_image"
   mount PostgresqlLoStreamer::Engine => "/service_image"
   mount PostgresqlLoStreamer::Engine => "/testimonial_avatar"

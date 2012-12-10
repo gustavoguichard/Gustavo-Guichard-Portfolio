@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121207184251) do
+ActiveRecord::Schema.define(:version => 20121210123905) do
 
   create_table "friendly_id_slugs", :force => true do |t|
     t.string   "slug",                         :null => false
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20121207184251) do
     t.string   "slug"
     t.string   "video_url"
     t.integer  "image",      :null => false
+    t.integer  "thumb"
   end
 
   add_index "projects", ["slug"], :name => "index_projects_on_slug"

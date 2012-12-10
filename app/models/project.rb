@@ -11,6 +11,7 @@ class Project < ActiveRecord::Base
 	after_destroy :destroy_empty_tags
 
 	mount_uploader :image, ProjectUploader
+	mount_uploader :thumb, ProjectThumbUploader
 
 	def tag_names
 		@tag_names || tags.map(&:name).join(', ').titleize
@@ -29,6 +30,14 @@ class Project < ActiveRecord::Base
 			find(:all, :conditions => ['title LIKE ?', "%#{search}%"])
 		else
 			find(:all)
+		end
+	end
+
+	def thumbnail
+		if self.thumb.present?
+			self.thumb
+		else
+			self.image
 		end
 	end
 

@@ -17,6 +17,7 @@ article.row
       = form_for(@project) do |f|
         .form-inputs
           = f.file_field :image, class: "span4"
+          = f.file_field :thumb, class: "span4"
         .form-actions
           = f.button "Atualizar!", class: "btn"
     - else
