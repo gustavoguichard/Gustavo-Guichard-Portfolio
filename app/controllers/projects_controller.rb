@@ -10,7 +10,8 @@ class ProjectsController < ApplicationController
       @projects = Project.all(:order => "position")
     end
     @tags = Tag.all
-
+    expires_in 5.minutes
+        
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @projects }
@@ -21,6 +22,8 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @project = Project.find(params[:id])
+    expires_in 5.minutes
+    fresh_when @project
     if request.path != project_path(@project)
       redirect_to @project, :status => :moved_permanently
     end
