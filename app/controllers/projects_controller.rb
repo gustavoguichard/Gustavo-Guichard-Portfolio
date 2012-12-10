@@ -7,11 +7,10 @@ class ProjectsController < ApplicationController
     if params[:search].present?
       @projects = Project.search(params[:search])
     else
-      @projects = Project.all(:order => "position")
+      @projects = Project.order("position")
     end
     @tags = Tag.all
-    expires_in 5.minutes
-        
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @projects }
