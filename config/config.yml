@@ -1,4 +1,6 @@
 development: &defaults
   TWITTER_USERNAME: 'gustavoguichard'
+  EMAIL_USERNAME: 'gustavoguichard'
+  EMAIL_PASSWORD: '131313'
 test: &development
   <<: *defaults
