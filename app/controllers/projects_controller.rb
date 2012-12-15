@@ -5,9 +5,9 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     if params[:search].present?
-      @projects = Project.search(params[:search])
+      @projects = Project.search(params[:search]).includes(:tags)
     else
-      @projects = Project.order("position")
+      @projects = Project.order("position").includes(:tags)
     end
     @tags = Tag.all
 
@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id])
+    @project = Project.find(params[:id]).includes(:tags)
     if request.path != project_path(@project)
       redirect_to @project, status: :moved_permanently
     end
