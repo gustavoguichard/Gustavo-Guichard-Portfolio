@@ -13,15 +13,12 @@ class StaticPagesController < ApplicationController
 		@message = Message.new(params[:message])
 		if @message.valid?
 			if ContactMailer.contact_email(@message).deliver
-			  flash[:notice] = "Message sent."
-			  redirect_to contact_path
+				redirect_to contact_path, notice: "Message sent."
 	    else
-	      flash[:notice] = "Oops. There was an error while sending your message."
-	      render :contact
+	      render :contact, notice: "Oops. There was an error while sending your message."
 	    end
 	  else
-	  	flash[:notice] = "Please fill all fields."
-	  	render :contact
+	  	render :contact, notice: "Please fill all fields."
 	  end
 	end
 end

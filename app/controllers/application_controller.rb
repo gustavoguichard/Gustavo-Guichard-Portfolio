@@ -16,8 +16,7 @@ class ApplicationController < ActionController::Base
 
   def protect_admin
     unless @admin
-      flash[:notice] = "You're not authorized to visit this page."
-      redirect_to root_path
+      redirect_to root_path, notice: "You're not authorized to visit this page."
     end
   end
 end

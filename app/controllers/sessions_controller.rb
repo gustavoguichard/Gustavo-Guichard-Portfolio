@@ -3,15 +3,15 @@ class SessionsController < ApplicationController
 
 	def new
 	end
+	
 	def create
 		auth = request.env["omniauth.auth"]
 		session[:nickname] = auth["info"]["nickname"]
-		flash[:notice] = "Sucessfully logged in"
-		redirect_to root_path
+		redirect_to root_path, notice: "Sucessfully logged in"
 	end
+
 	def destroy
 		reset_session
-		flash[:notice] = "Sucessfully logged out"
-		redirect_to root_path
+		redirect_to root_path, notice: "Sucessfully logged out"
 	end
 end
