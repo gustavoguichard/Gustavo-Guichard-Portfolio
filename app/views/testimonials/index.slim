@@ -12,8 +12,7 @@ table.table.table-striped
       tr
         td= testimonial.name
         td
-          = if testimonial.website then link_to testimonial.company, testimonial.website, :target => "_blank" else testimonial.company end
-          = ' - ' + testimonial.job if testimonial.job.present?
+          = company_link testimonial
         td= raw testimonial.content
         td
           - avatar_image = image_tag testimonial.avatar

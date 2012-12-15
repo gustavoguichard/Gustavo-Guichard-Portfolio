@@ -3,7 +3,7 @@ h2= link_to "Portfolio", portfolio_path
 hr/
 article.row
   section.span8.image_portfolio
-    - if @project.video_url.present?
+    - if @project.video_url?
       iframe[src="http://player.vimeo.com/video/#{@project.video_number}?byline=0&amp;portrait=0" width="599" height="481" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen]
     - else
       = image_tag @project.image
