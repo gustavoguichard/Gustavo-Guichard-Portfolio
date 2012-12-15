@@ -1,6 +1,4 @@
-class SiteSettingsController < ApplicationController
-  before_filter :protect_admin
-  
+class SiteSettingsController < ApplicationController  
   def new
     @site_setting = SiteSetting.new
   end

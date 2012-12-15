@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-  before_filter :protect_admin, except: :index
+  skip_before_filter :protect_admin, only: :index
 
   def index
     @services = Service.all(order: "position")

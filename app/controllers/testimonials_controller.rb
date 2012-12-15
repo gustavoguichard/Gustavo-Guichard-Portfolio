@@ -1,6 +1,4 @@
 class TestimonialsController < ApplicationController
-  before_filter :protect_admin
-
   def index
     @testimonials = Testimonial.all(:order => "position")
   end

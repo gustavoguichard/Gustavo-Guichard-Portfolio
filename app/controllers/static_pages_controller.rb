@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+	skip_before_filter :protect_admin
+	
 	def home
 		@testimonials = Testimonial.all(:order => "position")
 	end
