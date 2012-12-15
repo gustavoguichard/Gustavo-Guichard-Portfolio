@@ -10,15 +10,10 @@ class ProjectsController < ApplicationController
       @projects = Project.order("position").includes(:tags)
     end
     @tags = Tag.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @projects }
-    end
   end
 
   def show
-    @project = Project.find(params[:id]).includes(:tags)
+    @project = Project.find(params[:id])
     if request.path != project_path(@project)
       redirect_to @project, status: :moved_permanently
     end
@@ -31,11 +26,6 @@ class ProjectsController < ApplicationController
       redirect_to root_path
     else
       @project = Project.new
-
-      respond_to do |format|
-        format.html # new.html.erb
-        format.json { render json: @project }
-      end
     end
   end
 
@@ -43,15 +33,10 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(params[:project])
-
-    respond_to do |format|
-      if @project.save && @admin
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
-        format.json { render json: @project, status: :created, location: @project }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
+    if @project.save && @admin
+      redirect_to @project, notice: 'Project was successfully created.'
+    else
+      render action: "new"
     end
   end
 
@@ -68,11 +53,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project = Project.find(params[:id])
     @project.destroy if @admin
-
-    respond_to do |format|
-      format.html { redirect_to portfolio_url }
-      format.json { head :no_content }
-    end
+    redirect_to portfolio_url
   end
 
   # POST /sort/  
