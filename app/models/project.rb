@@ -34,11 +34,7 @@ class Project < ActiveRecord::Base
 	end
 
 	def thumbnail
-		if self.thumb.present?
-			self.thumb
-		else
-			self.image
-		end
+		thumb || image
 	end
 
 	private

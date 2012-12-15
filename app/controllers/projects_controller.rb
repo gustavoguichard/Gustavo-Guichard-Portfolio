@@ -13,18 +13,14 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render :json => @projects }
+      format.json { render json: @projects }
     end
   end
 
-  # GET /projects/1
-  # GET /projects/1.json
   def show
     @project = Project.find(params[:id])
-    expires_in 5.minutes
-    fresh_when @project
     if request.path != project_path(@project)
-      redirect_to @project, :status => :moved_permanently
+      redirect_to @project, status: :moved_permanently
     end
   end
 
@@ -38,7 +34,7 @@ class ProjectsController < ApplicationController
 
       respond_to do |format|
         format.html # new.html.erb
-        format.json { render :json => @project }
+        format.json { render json: @project }
       end
     end
   end
@@ -50,11 +46,11 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save && @admin
-        format.html { redirect_to @project, :notice => 'Project was successfully created.' }
-        format.json { render :json => @project, :status => :created, :location => @project }
+        format.html { redirect_to @project, notice: 'Project was successfully created.' }
+        format.json { render json: @project, status: :created, location: @project }
       else
         format.html { render action: "new" }
-        format.json { render :json => @project.errors, :status => :unprocessable_entity }
+        format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -84,6 +80,6 @@ class ProjectsController < ApplicationController
     params[:projects].each_with_index do |project, index|
       Project.update_all(['position=?', index+1], ['id=?', project[1]["id"]]) if @admin
     end
-    render :nothing => true
+    render nothing: true
   end
 end
