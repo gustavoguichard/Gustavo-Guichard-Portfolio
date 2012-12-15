@@ -1,8 +1,6 @@
 # coding: utf-8
 require 'spec_helper'
 describe Project do
-  let(:project) { Project.make! }
-
   context "Validations" do
     before do
       3.times { Project.make! }
@@ -18,52 +16,17 @@ describe Project do
     it { should have_many :taggings }
   end
 
-  # describe "#body=" do
-  #   text = "Uma _simples_ descrição do *projeto*"
+  context "Image" do
+    subject(:project) { Project.make! }
+    its(:image) { should be_kind_of(ProjectUploader) }
+    its('image.to_s') { should match /\/project_image\/\d+/ }
+  end
 
-  #   let(:project) { Project.make!(:body => text) }
+  context "Thumb" do
+    subject(:project) { Project.make! }
+    its(:thumb) { should be_kind_of(ProjectThumbUploader) }
+    its('thumb.to_s') { should match /\/project_thumb\/\d+/ }
+  end
 
-  #   it "Should have the right body" do
-  #     project.body.should == "Uma _simples_ descrição do *projeto*"
-  #   end
-
-  #   it "Should have the right html_body" do
-  #     project.html_body.should == "<p>Uma <em>simples</em> descrição do <strong>projeto</strong></p>"
-  #   end
-
-  #   it "Should remove unauthorized script tags" do
-  #     project.body = "<script>alert('hello')</script>\nhello"
-  #     project.html_body.should == "<p>hello</p>"
-  #     project.body.should == "\nhello"
-  #   end
-  # end
-
-  # describe "#categories=" do
-  #   let(:category) { Category.make!(:name => 'foo') }
-
-  #   it "has no categories" do
-  #     project.categories.should be_blank
-  #   end
-
-  #   it "has the right categories" do
-  #     project.categories = [category]
-  #     project.save!
-  #     project.categories.count == 1
-  #     project.categories.first.should be(category)
-  #   end
-  # end
-
-  # describe "#category_ids=" do
-  #   let(:categories) {
-  #     ["foo", "bar", "baz"].map { |cat| Category.make!(:name => cat) }
-  #   }
-
-  #   it "sets the categories using the IDs" do
-  #     project.category_ids = categories.map { |c| c.id }
-  #     project.save!
-  #     project.categories.count.should == 3
-  #     project.categories.should == categories
-  #   end
-  # end
-
+    
 end
