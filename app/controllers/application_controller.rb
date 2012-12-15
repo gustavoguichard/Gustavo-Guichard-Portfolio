@@ -1,15 +1,16 @@
 class ApplicationController < ActionController::Base
+  extend ActiveSupport::Memoizable
+
   protect_from_forgery
   before_filter :is_admin
   before_filter :protect_admin
 
   def is_admin
-    @site_settings = session[:site_settings] || SiteSetting.first
+    @site_settings = saved_settings
     if @site_settings.nil? then
       @admin = true
       @site_settings = SiteSetting.new
     else
-      session[:site_settings] ||= @site_settings
       @admin = session[:nickname] == ENV['TWITTER_USERNAME']
     end
   end
@@ -19,4 +20,10 @@ class ApplicationController < ActionController::Base
       redirect_to root_path, notice: "You're not authorized to visit this page."
     end
   end
+
+  def saved_settings
+    SiteSetting.first
+  end
+
+  memoize :saved_settings
 end
