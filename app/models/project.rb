@@ -6,7 +6,7 @@ class Project < ActiveRecord::Base
 	has_many :taggings, :dependent => :destroy
 	has_many :tags, :through => :taggings
 	validates :title, :content, :image, :presence => true
-	validates :video_url, format: { with: /(https?:\/\/)?(vimeo\.com\/)?\d+\/?/, allow_nil: true }
+	validates :video_url, format: { with: /(https?:\/\/)?(vimeo\.com\/)([0-9]+)(?!\w)\/?/, allow_blank: true }
 	attr_writer :tag_names
 	after_save :assign_tags, :destroy_empty_tags
 	after_destroy :destroy_empty_tags
@@ -35,7 +35,11 @@ class Project < ActiveRecord::Base
 	end
 
 	def thumbnail
-		thumb || image
+		if thumb.to_s.match(/\d+/)[0].to_i == image.to_s.match(/\d+/)[0].to_i + 1
+			image
+		else
+			thumb
+		end
 	end
 
 	private

@@ -1,5 +1,4 @@
 # coding: utf-8
-require 'spec_helper'
 describe Project do
   context "Validations" do
     before do
@@ -12,8 +11,8 @@ describe Project do
   end
 
   context "Associations" do
-    it { should have_many :tags }
-    it { should have_many :taggings }
+    it { should have_many(:tags).through(:taggings) }
+    it { should have_many(:taggings).dependent(:destroy) }
   end
 
   context "Image" do
@@ -34,6 +33,8 @@ describe Project do
       project.video_number.to_s.should be == "41615428"
     end
     it "Should validate video url with regex" do
+      project.video_url = ""
+      project.should be_valid
       project.should be_valid
       project.video_url = "http://vimeo.com/41615428/"
       project.should be_valid
@@ -41,6 +42,49 @@ describe Project do
       project.should be_valid
       project.video_url = "http://vimeo.com/"
       project.should_not be_valid
+      project.video_url = "http://google.com/08129"
+      project.should_not be_valid
+      project.video_url = "vimeo.com/4161as5428/"
+      project.should_not be_valid
+    end
+  end
+
+  context "Friendly_id" do
+    subject(:project) { Project.make! }
+    it "Should match project title" do
+      project.friendly_id.should == project.title.parameterize
+    end
+  end
+
+  context "Taggings" do
+    subject(:project) { Project.make! }
+    before do
+      # tag = Tag.find_or_create_by_name(name: t)
+      project.tag_names = "One, Two, Tag Three"
+      project.save!
+    end
+    it "#all_tags Should return tag names separed by spaces" do
+      project.all_tags.should match /three/
+      project.all_tags.should match /two/
+      project.all_tags.should match /one/
+    end
+    it "#tag_names Should return pretty tag names separed by commas" do
+      project.tag_names.should match /One/
+      project.tag_names.should match /Two/
+      project.tag_names.should match /Tag Three/
+      project.tag_names.match(/(\w\,)+/).size.should == 2
+    end
+    it "#destroy_empty_tags when project is saved" do
+      Tag.all.size.should > 2
+      project.tag_names = "One, Two"
+      project.save!
+      Tag.all.size.should == 2
+    end
+    it "#destroy_empty_tags when project is destroyed" do
+      project.tag_names = "One, Two, Tag Three"
+      project.save!
+      project.destroy
+      Tag.all.size.should == 0
     end
   end
 
@@ -66,4 +110,5 @@ describe Project do
       project.thumbnail.should == project.thumb
     end
   end
+
 end

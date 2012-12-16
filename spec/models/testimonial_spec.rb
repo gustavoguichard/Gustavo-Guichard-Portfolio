@@ -1,5 +1,4 @@
 # coding: utf-8
-require 'spec_helper'
 describe Testimonial do
 
   context "Validations" do
