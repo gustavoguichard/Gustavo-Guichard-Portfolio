@@ -1,6 +1,8 @@
 # coding: utf-8
 describe Testimonial do
-
+  before do
+    Testimonial.all.each { |t| t.destroy }
+  end
   context "Validations" do
     before do
       3.times { Testimonial.make! }

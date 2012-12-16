@@ -1,5 +1,8 @@
 # coding: utf-8
 describe Project do
+  before do
+    Project.all.each { |p| p.destroy }
+  end
   context "Validations" do
     before do
       3.times { Project.make! }
