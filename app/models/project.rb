@@ -35,7 +35,7 @@ class Project < ActiveRecord::Base
 	end
 
 	def thumbnail
-		thumb.presence ? thumb : image
+		thumb || image
 	end
 
 	private
