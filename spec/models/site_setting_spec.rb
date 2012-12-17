@@ -1,7 +1,6 @@
 # coding: utf-8
 describe SiteSetting do
   before do
-    SiteSetting.all.each { |ss| ss.destroy }
     SiteSetting.make!
   end
   context "Validations" do

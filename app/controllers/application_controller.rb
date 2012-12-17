@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def is_admin
     @site_settings = saved_settings
-    if @site_settings.nil? then
+    if @site_settings.nil?
       @admin = true
       @site_settings = SiteSetting.new
     else

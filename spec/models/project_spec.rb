@@ -1,8 +1,5 @@
 # coding: utf-8
 describe Project do
-  before do
-    Project.all.each { |p| p.destroy }
-  end
   context "Validations" do
     before do
       3.times { Project.make! }
@@ -62,9 +59,14 @@ describe Project do
   context "Taggings" do
     subject(:project) { Project.make! }
     before do
-      # tag = Tag.find_or_create_by_name(name: t)
       project.tag_names = "One, Two, Tag Three"
       project.save!
+    end
+    it "Should include created tags" do
+      project.should have(3).tags
+      Tag.all.each do |tag|
+        project.tags.should include(tag)
+      end
     end
     it "#all_tags Should return tag names separed by spaces" do
       project.all_tags.should match /three/
@@ -78,16 +80,11 @@ describe Project do
       project.tag_names.match(/(\w\,)+/).size.should == 2
     end
     it "#destroy_empty_tags when project is saved" do
-      Tag.all.size.should > 2
       project.tag_names = "One, Two"
-      project.save!
-      Tag.all.size.should == 2
+      expect { project.save! }.to change { Tag.count }.from(3).to(2)
     end
     it "#destroy_empty_tags when project is destroyed" do
-      project.tag_names = "One, Two, Tag Three"
-      project.save!
-      project.destroy
-      Tag.all.size.should == 0
+      expect { project.destroy }.to change { Tag.count }.to(0)
     end
   end
 

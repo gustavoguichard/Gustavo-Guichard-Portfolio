@@ -1,8 +1,5 @@
 # coding: utf-8
 describe Service do
-  before do
-    Service.all.each { |s| s.destroy }
-  end
   context "Validations" do
     before do
       3.times { Service.make! }
