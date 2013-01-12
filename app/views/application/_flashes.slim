@@ -1,5 +1,5 @@
 - if flash.present?
-  div[class="alert #{if params[:action] == "send_mail" then "alert-error" elsif params[:action] == "contact" then "alert-success" else "alert-block" end}"]
+  .alert class="#{if params[:action] == "send_mail" then "alert-error" elsif params[:action] == "contact" then "alert-success" else "alert-block" end}"
     a.close[data-dismiss="alert"] &times
     - flash.each do |key, value|
       h4.alert-heading
