@@ -17,7 +17,9 @@ footer#footer
           = link_to "LinkedIn", "http://www.linkedin.com/pub/gustavo-guichard/32/838/315", class: "LinkedIn", target: "_blank", rel: "tooltip", title: "LinkedIn"
 
 section#copyright
-  | &copy; Gustavo Guichard - #{Date.today.year} - all rights reserved
+  | Gustavo Guichard - #{Date.today.year} &nbsp;&nbsp;&nbsp;
+  a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.pt_BR"
+      img alt="Licença Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png"
   
   #logout_control
     - if @admin
