@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 gem 'rails', '3.2.8'
 gem 'pg'
@@ -13,8 +14,13 @@ gem 'RedCloth' # Suporte para Textile
 gem 'google-analytics-rails'
 
 group :development do
+  gem 'awesome_print'
+  gem 'annotate'
   gem 'quiet_assets'
-  gem 'zeus'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'letter_opener'
+  gem 'rack-mini-profiler'
 end
 
 # Gems used only for assets and not required
@@ -41,7 +47,7 @@ group :test do
 end
 
 gem 'omniauth'
-gem 'omniauth-twitter'
+gem 'omniauth-twitter', '~> 1.0.0'
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 gem 'best_in_place'
