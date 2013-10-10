@@ -9,7 +9,7 @@ section.row
       = raw @site_settings.contact_info if @site_settings
   .col-md-1
   #contact_form.col-md-7.col-sm-7.col-md-pull-5.col-sm-pull-5
-    = simple_form_for @message do |f|
+    = form_for @message do |f|
       .form-group
         = f.label :name
         = f.text_field :name, class: "form-control", placeholder: "Name"

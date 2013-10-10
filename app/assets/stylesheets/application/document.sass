@@ -56,23 +56,10 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
   padding-top: 100px
   padding-bottom: 40px
 
-  // input[type=text], input[type=email], textarea 
-  //   padding-top: 7px
-  //   padding-bottom: 7px
-  //   border: 1px solid #999
-  //   font-style: italic
-  //   background-color: #fafafa
-  //   box-shadow: none
-
-  //   &:focus 
-  //     box-shadow: 0 2px 1px rgba(black,.3)
-  //     position: relative
-  //     top: -2px
-  //     background-color: #f2f2f2
-
   .field_with_errors 
     input, textarea 
       background: #fee
+      border-color: #f88
 
   small 
     font-size: 90%
@@ -86,7 +73,6 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
   .home-portfolio-item
     width: 33%
     box-shadow: 0 1px 3px rgba(black,.4)
-    border-radius: 10px
     +transition(.2s)
   .home-portfolio
     cursor: pointer
@@ -149,11 +135,11 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
       font-size: 10px
       position: relative
 
-    .btn-danger 
+    .close
       position: absolute
       top: 5px
-      right: 5px
-      color: white
+      left: 215px
+      color: red
     
     &.shadow1::after
       background-image: image-url("shadows/shadow1.png")
@@ -191,10 +177,11 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
     img
       margin-bottom: 1em
       margin-top: 1em
-    .btn 
+    .close
       position: absolute
       top: 5px
-      right: 5px
+      right: 25px
+      color: red
 
 .nav-pills 
   font-size: 12px

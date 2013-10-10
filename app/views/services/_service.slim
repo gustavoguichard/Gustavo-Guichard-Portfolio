@@ -5,4 +5,4 @@
     .description.col-md-9.col-sm-8.col-xs-9
       h3= if @admin then link_to service.title, service else service.title end
       p= service.content
-      = link_to 'x', service_path(service), method: 'delete', confirm: 'Are you sure?', class: 'btn btn-danger btn-mini' if @admin
+      = link_to raw('&times;'), service_path(service), method: 'delete', confirm: 'Are you sure?', class: 'close' if @admin

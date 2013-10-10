@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
     $('.best_in_place').best_in_place()
-    $('#portfolio .row').sortable({
+    $('#portfolio .portfolio-list').sortable({
        update: (event, ui) ->
        	object = {projects: ""}
        	object_string = '{'
@@ -15,7 +15,7 @@ jQuery ->
        	
        	$.post('/projects/sort/', object)
     })
-    $('#testimonials .row').sortable({update: (event, ui) ->
+    $('#testimonials .testimonials_cont').sortable({update: (event, ui) ->
         object = {projects: ""}
         object_string = '{'
         $('.testimonial', $(this)).each (index, el) ->
