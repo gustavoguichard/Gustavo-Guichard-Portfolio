@@ -2,13 +2,13 @@
 h2 Portfolio
 hr/
 section#portfolio
-  ul.nav.nav-pills
-    li.active
+  ul.nav.nav-pills.tags-list
+    li.tag-item.active
       = link_to "All", "#", rel: "all"
     - @tags.each do |tag|
-      li
+      li.tag-item
         = link_to tag.name.titleize, "#", rel: tag.name
-  .row
+  .row.portfolio-list
     = render @projects
 
 - if @admin

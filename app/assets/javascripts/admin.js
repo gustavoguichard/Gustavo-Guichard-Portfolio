@@ -16,6 +16,6 @@
 //= require jquery.purr
 //= require best_in_place
 //= require twitter/bootstrap/bootstrap-tooltip
-//= require jquery.quicksand
+//= require jquery.shuffle
 //= require static_pages
 //= require editable_pages

@@ -3,7 +3,10 @@ section#intro.row
     = raw @site_settings.intro_text if @site_settings
     - if @site_settings && @site_settings.available
       p= link_to "Available for Free Lance!", contact_path, :class => "btn hire btn-green"
-    = image_tag "computador.png", :id => "home_img"
+  aside.span6.home-portfolio
+    = link_to portfolio_path do
+      - @projects.each do |project|
+        = image_tag project.thumbnail, width: 220, height: 160, class: "home-portfolio-item"
 section#testimonials
   h2 Testimonials
   .row

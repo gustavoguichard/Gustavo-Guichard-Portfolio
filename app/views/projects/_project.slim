@@ -1,7 +1,6 @@
 - shadows = ["shadow1", "shadow2", "shadow3", "shadow3b", "shadow4", "shadow4b"]
-= content_tag "article", data: {id: "id-#{project.id}", type: project.all_tags, object: "#{project.to_json if @admin}"}, class: "portfolio_item span3 #{shadows.sample}" do
-  - port_img = image_tag project.thumbnail, width: 220, height: 160
-  = link_to port_img, project
+= content_tag "article", data: {id: "id-#{project.id}", groups: project.all_tags, object: "#{project.to_json if @admin}"}, class: "portfolio_item span3 #{shadows.sample}" do
+  = link_to image_tag(project.thumbnail, width: 220, height: 160), project
   h5= project.title
   small= project.tag_names
   = link_to 'x', project, confirm: 'Are you sure?', method: :delete, class: 'btn btn-mini btn-danger' if @admin

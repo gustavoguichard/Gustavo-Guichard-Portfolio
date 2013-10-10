@@ -19,7 +19,9 @@ class Project < ActiveRecord::Base
 	end
 
 	def all_tags
-		tags.map(&:name).join(' ')
+		string = "["
+		string += tags.map{|t|"\"#{t.name}\""}.join(',')
+		string += "]"
 	end
 
 	def video_number

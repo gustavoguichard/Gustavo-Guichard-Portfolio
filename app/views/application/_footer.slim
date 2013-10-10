@@ -7,8 +7,6 @@ footer#footer
         address
           = raw @site_settings.footer_contact if @site_settings
       section.span3
-        = form_tag portfolio_path, method: :get do
-          = text_field_tag :search, params[:search], placeholder: "Search"
         aside#social
           = link_to "Github", "https://github.com/gustavoguichard", class: "Github", target: "_blank", rel: "tooltip", title: "Github"
           = link_to "] Google +", "https://plus.google.com/110915017162031397251", class: "Google", target: "_blank", rel: "tooltip", title: "Google"
@@ -16,18 +14,20 @@ footer#footer
           = link_to "Twitter", "http://twitter.com/#!/gustavoguichard", class: "Twitter", target: "_blank", rel: "tooltip", title: "Twitter"
           = link_to "LinkedIn", "http://www.linkedin.com/pub/gustavo-guichard/32/838/315", class: "LinkedIn", target: "_blank", rel: "tooltip", title: "LinkedIn"
 
-section#copyright
-  | Gustavo Guichard - #{Date.today.year} &nbsp;&nbsp;&nbsp;
-  a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.pt_BR"
-      img alt="Licença Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png"
-  
-  #logout_control
-    - if @admin
-      | Logado como Admin | 
-      = link_to "Admin", admin_path, class:  "btn btn-mini" 
-      | | 
-      = link_to "Logout", logout_path, class:  "btn btn-mini"
-    - else
-      = content_tag 'a', class: 'btn btn-mini btn-info', href: '/auth/twitter' do
-        i.icon-user
-        | Login
+    .row
+      section.span12
+        section#copyright
+          | Gustavo Guichard - #{Date.today.year} &nbsp;&nbsp;&nbsp;
+          a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.pt_BR"
+              img alt="Licença Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png"
+          
+          #logout_control
+            - if @admin
+              | Logado como Admin | 
+              = link_to "Admin", admin_path, class:  "btn btn-mini" 
+              | | 
+              = link_to "Logout", logout_path, class:  "btn btn-mini"
+            - else
+              = content_tag 'a', class: 'btn btn-mini btn-info', href: '/auth/twitter' do
+                i.icon-user
+                | Login

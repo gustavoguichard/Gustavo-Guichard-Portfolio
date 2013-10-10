@@ -1,20 +1,19 @@
+$orange: #C9532E
 +css-techniques
 +selection
-  background: #4a4879
+  background: $orange
   color: white
 
 body  
-  background: image-url("body_bg.jpg") repeat
+  background: white
 
   a:visited 
-    color: #83a5d2
+    color: $orange
 
 h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul 
-  font-family: 'Doppio One', sans-serif
-  font-weight: normal
-  text-transform: uppercase
+  font-weight: 700
   a
-    color: #83a5d2
+    color: $orange
 
 #header 
   background: image-url("top_bg.jpg") repeat-x center top
@@ -39,17 +38,16 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
           margin: 15px 5px 0
           a 
             color: white
-            text-shadow: 0 1px 1px rgba(0,0,0,1)
             padding: 6px 8px 5px
             border-radius: 3px
             &:hover 
               text-decoration: none
-              background: rgba(0,0,0,.5)
+              background: rgba(black,.5)
 
           &.active a, a:active 
-            border-bottom: 1px solid rgba(255,255,255,.5)
-            +box-shadow(0 1px 1px black inset)
-            background: rgba(0,0,0,.5)
+            border-bottom: 1px solid rgba(white,.5)
+            box-shadow: 0 1px 1px black inset
+            background: rgba(black,.5)
 
   h1#logo a 
     position: absolute
@@ -69,59 +67,34 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
   position: relative
   z-index: 5
   min-height: 350px
-  text-shadow: 0 1px 1px white
-  overflow: hidden
-  +decorative-content
-    +image-replace("watercolor.jpg")
-    top: 30px
-    right: -140px
-    z-index: -10
 
   .btn.btn-green 
-    font-family: Damion, cursive
     color: white
-    font-size: 23px
-    padding: 12px
-    border: 1px solid #689530
-    text-shadow: 0 -1px 1px rgba(0,0,0,.3)
-    position: relative
-    top: -2px
-    +box-shadow(0 2px 0 #689530)
-    +vertical-gradient(#95be55, #7bae48)
+    font-size: 18px
+    font-weight: 700
+    padding: 15px
+    border: none
+    background: $orange
+    box-shadow: none
+    text-shadow: none
     
     &:active 
-      +box-shadow(0 1px 4px rgba(0,0,0,.3) inset)
+      box-shadow: 0 1px 4px rgba(black,.3) inset
 
-    &.hire 
-      padding-right: 20px
-      +decorative-content
-        +image-replace("hire_tag.png")
-        top: -6px
-        right: -6px
-
-  .hr
-    display: block
-    width: 100%
-    background: image-url("hr_bg.png") no-repeat left center
-    height: 33px
-    margin-top: 12px
-
-    hr 
-      display: none
+  hr 
+    border-top: 1px solid #ddd
+    margin-bottom: 35px
 
   input, textarea 
-    font-family: Georgia, serif
-    text-transform: none
     padding-top: 7px
     padding-bottom: 7px
     border: 1px solid #999
     font-style: italic
-    background-color: #eee
-    +box-shadow(0 1px 5px rgba(0,0,0,.2) inset)
-    text-shadow: 0 1px 0 white
+    background-color: #fafafa
+    box-shadow: none
 
     &:focus 
-      +box-shadow(0 2px 1px rgba(0,0,0,.3))
+      box-shadow: 0 2px 1px rgba(black,.3)
       position: relative
       top: -2px
       background-color: #f2f2f2
@@ -132,7 +105,6 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
 
   small 
     font-size: 90%
-    font-style: italic
     color: #808080
 
 #intro 
@@ -144,11 +116,35 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
     line-height: 27px
     margin: 20px 0 30px
 
-  img#home_img 
-    position: absolute
-    right: 0
-    top: 100px
-    z-index: -5
+  .home-portfolio-item
+    width: 33%
+    box-shadow: 0 1px 7px rgba(black,.4), 0 0 0 1px rgba(black,.3)
+    +transition(.2s)
+  .home-portfolio
+    cursor: pointer
+    position: relative
+    z-index: 20
+    &:hover .home-portfolio-item
+      position: relative
+      z-index: -1
+      &:nth-child(1)
+        +transform(translate(0,-40px) scale(1.15,1.15) rotateY(-41deg) translateZ(30px))
+      &:nth-child(2)
+        +transform(translate(0,-40px) scale(1.15,1.15) translateZ(30px))
+      &:nth-child(3)
+        +transform(translate(0,-40px) scale(1.15,1.15) rotateY(41deg) translateZ(30px))
+      &:nth-child(4)
+        +transform(scale(1.15,1.15) rotateY(-41deg) translateZ(30px))
+      &:nth-child(5)
+        +transform(scale(1.15,1.15) translateZ(40px))
+      &:nth-child(6)
+        +transform(scale(1.15,1.15) rotateY(41deg) translateZ(30px))
+      &:nth-child(7)
+        +transform(translate(0,40px) scale(1.15,1.15) rotateY(-41deg) translateZ(30px))
+      &:nth-child(8)
+        +transform(translate(0,40px) scale(1.15,1.15) translateZ(30px))
+      &:nth-child(9)
+        +transform(translate(0,40px) scale(1.15,1.15) rotateY(41deg) translateZ(30px))
 
 #testimonials 
   .testimonial_container 
@@ -158,17 +154,18 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
   .testimonial 
     float: left
 
+    h4
+      margin: 0
+
     p 
       width: 310px
       margin-top: 10px
 
   img 
     float: left
-    margin-right: 20px
-    +box-shadow(0 0 7px rgba(0,0,0,.3))
-    +border-radius(4px)
-    padding: 7px
-    border: 1px solid #aaa
+    margin: 0 30px 20px 0
+    padding: 1px
+    border: 1px solid #ddd
 
   .row 
     margin-top: 20px
@@ -178,6 +175,8 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
     position: relative
     margin-bottom: 18px
     height: 210px
+    h5
+      margin: 0
     +decorative-content
       top: -2px
       left: -15px
@@ -190,7 +189,6 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
 
     small 
       font-size: 10px
-      text-shadow: none
       position: relative
       top: -6px
 
@@ -199,7 +197,6 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
       top: 5px
       right: 5px
       color: white
-      font-family: Doppio, sans-serif
     
     &.shadow1::after
       background-image: image-url("shadows/shadow1.png")
@@ -230,11 +227,15 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
 
 #services 
   .service 
-    text-align: center
-    margin-bottom: 30px
+    margin-bottom: 60px
     position: relative
-    height: 220px
-
+    height: 200px
+    img
+      margin: 18px 20px 10px 0
+    .description, img
+      float: left
+    p
+      max-width: 250px
     .btn 
       position: absolute
       top: 5px
@@ -266,30 +267,16 @@ address span
   float: left
   width: 60px
 
-footer#footer 
-  background: image-url("footer_bg.gif") repeat top center
-  color: #e5e5e5
-  padding: 35px 0 45px
+footer#footer
+  background: #ddd 
+  padding-top: 35px
   position: relative
   z-index: 10
-  text-shadow: 0 1px 1px black
   float: left
   clear: both
   width: 100%
-  +placeholder-color(#787878)
-
-  input 
-    +border-radius(1px)
-    background: #4c4c4c image-url("search_icon.png") no-repeat 193px 3px
-    border: 1px solid #777
-    +box-shadow(0 1px 3px rgba(0,0,0,.6) inset)
-    color: #aaa
-
 
   #social 
-    position: relative
-    top: -23px
-
     a 
       text-indent: -999em
       display: block
@@ -303,51 +290,28 @@ footer#footer
 
       &.Github 
         background-position: 0 0
-        &:hover 
-          background-position: 0 -27px
 
       &.Google 
         background-position: -30px 0
-        &:hover 
-          background-position: -30px -27px
 
       &.Skype 
         background-position: -60px 0
-        &:hover 
-          background-position: -60px -27px
 
       &.Twitter 
         background-position: -90px 0
-        &:hover 
-          background-position: -90px -27px
 
       &.LinkedIn 
         background-position: -120px 0
-        &:hover 
-          background-position: -120px -27px
 
       &.RSS 
         background-position: -150px 0
-        &:hover 
-          background-position: -150px -27px
 
 section#copyright 
-  text-align: center
-  color: #808080
-  background: image-url("copyright_bg.jpg") repeat bottom
-  padding: 16px 0
-  position: relative
-  z-index: 5
+  padding: 4em 0 1em
   font-size: 12px
-  float: left
-  clear: both
-  width: 100%
 
 #logout_control 
-  position: absolute
-  bottom: 15px
-  right: 10px
-  z-index: 50
+  float: right
 
   a.btn
     color: #333
