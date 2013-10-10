@@ -1,14 +1,22 @@
 - title "Contact me"
-h2 Contact me
-hr/
+.row
+  .page-header.col-md-12
+    h2 Contact me
 section.row
-  #contact_form.span8
-    = simple_form_for @message do |f|
-      = f.input :name, label: false, input_html: {class: "span4"}, placeholder: "Name"
-      = f.input :email, label: false, input_html: {class: "span4"}, placeholder: "Email"
-      = f.input :body, label: false, as: "text", input_html: {class: "span8", rows: "4"}, placeholder: "Message"
-      = f.submit "Send it!", class: "btn btn-green"
-  aside.span4
+  aside.col-md-4.col-sm-5.col-md-push8.col-sm-push-8
     h3 Contact Info
     address
       = raw @site_settings.contact_info if @site_settings
+  .col-md-1
+  #contact_form.col-md-7.col-sm-7.col-md-pull-5.col-sm-pull-5
+    = simple_form_for @message do |f|
+      .form-group
+        = f.label :name
+        = f.text_field :name, class: "form-control", placeholder: "Name"
+      .form-group
+        = f.label :email
+        = f.text_field :email, class: "form-control", placeholder: "Email"
+      .form-group
+        = f.label :body
+        = f.text_area :body, class: "form-control", placeholder: "Message", rows: 6
+      = f.submit "Send it!", class: "btn btn-primary btn-lg"

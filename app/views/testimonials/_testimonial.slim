@@ -1,11 +1,13 @@
-.span6.testimonial_container
-  - avatar_img = image_tag testimonial.avatar
-  - if @admin
-    = link_to avatar_img, testimonial
-  - else
-    = avatar_img
-  = content_tag "article", :data => {:object => testimonial}, :class =>  "testimonial" do
-    h4= testimonial.name
-    small
-      = company_link testimonial
-    = raw testimonial.content
+.col-md-6.testimonial_container
+  .row
+    .col-md-3.col-sm-3
+      - avatar_img = image_tag testimonial.avatar, class: "img-responsive"
+      - if @admin
+        = link_to avatar_img, testimonial
+      - else
+        = avatar_img
+    = content_tag "article", :data => {:object => testimonial}, :class =>  "testimonial col-md-9 col-sm-9" do
+      h4= testimonial.name
+      small= company_link testimonial
+      hr/
+      = raw testimonial.content

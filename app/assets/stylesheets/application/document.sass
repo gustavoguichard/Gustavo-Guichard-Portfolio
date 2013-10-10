@@ -1,37 +1,28 @@
+$gray: #808080
 $orange: #C9532E
-+css-techniques
 +selection
   background: $orange
   color: white
 
-body  
-  background: white
-
-  a:visited 
-    color: $orange
-
 h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul 
   font-weight: 700
-  a
-    color: $orange
 
 #header 
   background: image-url("top_bg.jpg") repeat-x center top
   position: relative
-  z-index: 10
+  padding-top: 30px
 
   .menu_top 
     width: 100%
     background: image-url("top_menu.jpg") repeat-x bottom
     height: 52px
-    padding-top: 30px
 
     nav 
       position: relative
       ul 
         float: right
         list-style: none
-        margin-top: -8px
+        margin-top: -20px
         li 
           float: left
           font-size: 14px
@@ -64,40 +55,20 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
 #main 
   padding-top: 100px
   padding-bottom: 40px
-  position: relative
-  z-index: 5
-  min-height: 350px
 
-  .btn.btn-green 
-    color: white
-    font-size: 18px
-    font-weight: 700
-    padding: 15px
-    border: none
-    background: $orange
-    box-shadow: none
-    text-shadow: none
-    
-    &:active 
-      box-shadow: 0 1px 4px rgba(black,.3) inset
+  // input[type=text], input[type=email], textarea 
+  //   padding-top: 7px
+  //   padding-bottom: 7px
+  //   border: 1px solid #999
+  //   font-style: italic
+  //   background-color: #fafafa
+  //   box-shadow: none
 
-  hr 
-    border-top: 1px solid #ddd
-    margin-bottom: 35px
-
-  input, textarea 
-    padding-top: 7px
-    padding-bottom: 7px
-    border: 1px solid #999
-    font-style: italic
-    background-color: #fafafa
-    box-shadow: none
-
-    &:focus 
-      box-shadow: 0 2px 1px rgba(black,.3)
-      position: relative
-      top: -2px
-      background-color: #f2f2f2
+  //   &:focus 
+  //     box-shadow: 0 2px 1px rgba(black,.3)
+  //     position: relative
+  //     top: -2px
+  //     background-color: #f2f2f2
 
   .field_with_errors 
     input, textarea 
@@ -105,20 +76,17 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
 
   small 
     font-size: 90%
-    color: #808080
+    color: $gray
 
-#intro 
-  position: relative
-  margin-bottom: 30px
-
-  p 
-    font-size: 18px
-    line-height: 27px
+#intro
+  p
+    font-size: 1.2em
     margin: 20px 0 30px
 
   .home-portfolio-item
     width: 33%
-    box-shadow: 0 1px 7px rgba(black,.4), 0 0 0 1px rgba(black,.3)
+    box-shadow: 0 1px 3px rgba(black,.4)
+    border-radius: 10px
     +transition(.2s)
   .home-portfolio
     cursor: pointer
@@ -146,29 +114,19 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
       &:nth-child(9)
         +transform(translate(0,40px) scale(1.15,1.15) rotateY(41deg) translateZ(30px))
 
-#testimonials 
+#testimonials
+  h2
+    margin: 1em auto 2em
   .testimonial_container 
-    padding-bottom: 40px
-    float: left
-
-  .testimonial 
-    float: left
-
+    padding-bottom: 4em
     h4
       margin: 0
+  img
+    margin-bottom: 1em
 
-    p 
-      width: 310px
-      margin-top: 10px
-
-  img 
-    float: left
-    margin: 0 30px 20px 0
-    padding: 1px
-    border: 1px solid #ddd
-
-  .row 
-    margin-top: 20px
+  hr
+    margin-top: 0
+    margin-bottom: 1em
 
 #portfolio 
   .portfolio_item 
@@ -179,7 +137,7 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
       margin: 0
     +decorative-content
       top: -2px
-      left: -15px
+      left: 0
       z-index: -5
       +image-replace("shadows/shadow1.png")
 
@@ -190,7 +148,6 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
     small 
       font-size: 10px
       position: relative
-      top: -6px
 
     .btn-danger 
       position: absolute
@@ -217,7 +174,7 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
   +decorative-content
     +image-replace("shadows/shadow_big.png")
     top: 148px
-    left: -26px
+    left: -11px
     z-index: -5
 
   img 
@@ -227,15 +184,13 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
 
 #services 
   .service 
-    margin-bottom: 60px
+    margin-bottom: 4em
     position: relative
-    height: 200px
+    @media (min-width: 992px)
+      height: 160px
     img
-      margin: 18px 20px 10px 0
-    .description, img
-      float: left
-    p
-      max-width: 250px
+      margin-bottom: 1em
+      margin-top: 1em
     .btn 
       position: absolute
       top: 5px
@@ -249,14 +204,14 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
     margin-right: 20px
 
     a 
-      padding: 0
-      color: #c2c2c2
+      padding: 0 0 1em
+      color: lighten($gray,25%)
       background: none !important
       &:hover 
-        color: #808080
+        color: $gray
   
   li.active a 
-    color: #333 !important
+    color: darken($gray,25%) !important
 
 aside.description
   small 
@@ -269,23 +224,16 @@ address span
 
 footer#footer
   background: #ddd 
-  padding-top: 35px
-  position: relative
-  z-index: 10
-  float: left
-  clear: both
-  width: 100%
-
-  #social 
+  padding-top: 3em
+  padding-bottom: 1em
+  
+  #social
     a 
-      text-indent: -999em
-      display: block
+      +image-replace("social.png")
       width: 23px
       height: 23px
-      overflow: hidden
       float: left
       margin-right: 6px
-      background: image-url("social.png") no-repeat
       +transition(all .2s)
 
       &.Github 
@@ -305,13 +253,3 @@ footer#footer
 
       &.RSS 
         background-position: -150px 0
-
-section#copyright 
-  padding: 4em 0 1em
-  font-size: 12px
-
-#logout_control 
-  float: right
-
-  a.btn
-    color: #333

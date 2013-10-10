@@ -1,16 +1,18 @@
 section#intro.row
-  article.span6
+  article.col-md-6
     = raw @site_settings.intro_text if @site_settings
     - if @site_settings && @site_settings.available
-      p= link_to "Available for Free Lance!", contact_path, :class => "btn hire btn-green"
-  aside.span6.home-portfolio
+      p= link_to "Available for Free Lance!", contact_path, :class => "btn btn-primary btn-lg"
+  aside.col-md-6.home-portfolio
     = link_to portfolio_path do
       - @projects.each do |project|
-        = image_tag project.thumbnail, width: 220, height: 160, class: "home-portfolio-item"
-section#testimonials
-  h2 Testimonials
-  .row
-    = render @testimonials
-- if @admin
-  .form-actions
-    = link_to 'Novo Depoimento', new_testimonial_path, :class => "btn btn-green"
+        = image_tag project.thumbnail, width: 220, height: 160, class: "home-portfolio-item img-responsive"
+section#testimonials.row
+  .col-md-12
+    h2 Testimonials
+  .col-md-12
+    .row
+      = render @testimonials
+    - if @admin
+      .form-group
+        = link_to 'Novo Depoimento', new_testimonial_path, :class => "btn btn-green btn-primary btn-lg"

@@ -1,17 +1,18 @@
 - title "Portfolio"
-h2 Portfolio
-hr/
-section#portfolio
-  ul.nav.nav-pills.tags-list
-    li.tag-item.active
-      = link_to "All", "#", rel: "all"
-    - @tags.each do |tag|
-      li.tag-item
-        = link_to tag.name.titleize, "#", rel: tag.name
-  .row.portfolio-list
-    = render @projects
+.row
+  .page-header.col-md-12
+    h2 Portfolio
+section#portfolio.row
+  .col-md-12
+    ul.nav.nav-pills.tags-list
+      li.tag-item.active
+        = link_to "All", "#", rel: "all"
+      - @tags.each do |tag|
+        li.tag-item
+          = link_to tag.name.titleize, "#", rel: tag.name
+    .row.portfolio-list
+      = render @projects
 
-- if @admin
-  br/
-  .form-actions
-    = link_to 'Novo Projeto', new_project_path, class: "btn btn-green"
+      - if @admin
+        .form-group
+          = link_to 'Novo Projeto', new_project_path, class: "btn btn-primary btn-lg"

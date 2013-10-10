@@ -1,13 +1,14 @@
 - title "Project: " + @project.title
-h2= link_to "Portfolio", portfolio_path
-hr/
+.row
+  .page-header.col-md-12
+    h2= link_to "Portfolio", portfolio_path
 article.row
-  section.span8.image_portfolio
+  section.col-md-8.image_portfolio
     - if @project.video_url?
       iframe[src="http://player.vimeo.com/video/#{@project.video_number}?byline=0&amp;portrait=0" width="599" height="481" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen]
     - else
-      = image_tag @project.image
-  aside.span4.description
+      = image_tag @project.image, class: "img-responsive"
+  aside.col-md-4.description
     - if @admin
       h2= best_in_place @project, :title
       small= best_in_place @project, :tag_names
@@ -16,12 +17,12 @@ article.row
       p= best_in_place @project, :video_url
       = form_for(@project) do |f|
         .form-inputs
-          = f.file_field :image, class: "span4"
-          = f.file_field :thumb, class: "span4"
+          = f.file_field :image, class: "col-md-12"
+          = f.file_field :thumb, class: "col-md-12"
         .form-actions
           = f.button "Atualizar!", class: "btn"
     - else
       h2= @project.title
       small= @project.tag_names
       p= raw @project.content
-    = link_to "Visit this project", @project.visit_url, class: "btn btn-green" unless @project.visit_url.empty?
+    = link_to "Visit this project", @project.visit_url, class: "btn btn-primary btn-large" unless @project.visit_url.empty?
