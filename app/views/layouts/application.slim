@@ -9,12 +9,14 @@ html class='no-js' lang='en'
   = render "head"
 
   body.pages
-    = render "flashes"
-    = render "header"
+    = render "sidebar"
+    #page_content
+      = render "flashes"
+      = render "header"
 
-    #main role='main'
-      = yield
+      #main role='main'
+        = yield
 
-    = render "footer"
+      = render "footer"
 
     = render "javascripts"

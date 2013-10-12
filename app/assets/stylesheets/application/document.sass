@@ -18,6 +18,31 @@ html
 h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul 
   font-weight: 700
 
+[class^="icon-"], [class*=" icon-"]
+  font-family: FontAwesome
+  font-weight: normal
+  font-style: normal
+  text-decoration: inherit
+  -webkit-font-smoothing: antialiased
+.icon-external-link:before
+  content: "\f08e"
+.icon-facebook:before
+  content: "\f082"
+.icon-github:before
+  content: "\f113"
+.icon-twitter:before
+  content: "\f099"
+.icon-google-plus:before
+  content: "\f0d4"
+.icon-linkedin:before
+  content: "\f08c"
+.icon-skype:before
+  content: "\f17e"
+.icon-remove:before
+  content: "\f00d"
+.icon-envelope:before
+  content: "\f003"
+
 #main
   .content_wrapper
     padding-top: 4em
@@ -40,19 +65,22 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
   position: absolute
   top: -$menuPadding
   z-index: 20
-  border: $borderWidth/2 solid #eee
+  border: $borderWidth/2 solid #bbb
 
 #site_title
   font-size: 7em
   text-transform: uppercase
   text-align: left
   margin-top: 75px
-  color: #eee
+  color: #eaeaea
   line-height: 75px
   letter-spacing: -7px
+  @media (max-width: 1199px)
+    font-size: 6em
+    line-height: 64px
   @media (max-width: 495px)
-    font-size: 5em
-    line-height: 54px
+    font-size: 4.6em
+    line-height: 50px
 
 .home_project
   width: 100%
@@ -86,6 +114,31 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
     padding: 10px
     border: 2px solid gray
 
+#page_content
+  position: relative
+  max-width: 100%
+  +transition(margin .3s)
+
+#contact
+  position: fixed
+  top: 0
+  bottom: 0
+  right: 0
+  z-index: 30
+  background: red
+  box-shadow: 0 0 10px rgba(black,.4)
+  width: 90%
+  margin-right: -90%
+  +transition(margin .3s)
+  &:target
+    margin-right: 0
+    + #page_content
+      margin-left: -90%
+  @media (min-width: 570px)
+    margin-right: -500px
+    width: 500px
+    &:target + #page_content
+      margin-left: -500px
 
 #intro
   p
