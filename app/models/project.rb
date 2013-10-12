@@ -44,6 +44,18 @@ class Project < ActiveRecord::Base
 		end
 	end
 
+	def labels
+		if values
+			content.split('/')[0]
+		else
+			nil
+		end
+	end
+
+	def values
+		content.split('/')[1] || nil
+	end
+
 	private
 
 	def assign_tags

@@ -7,4 +7,4 @@ article.home_project style="background-image: url(#{project.image});" data-stell
       - else
         = project.title
     
-    canvas id="#{project.slug}" class="project_chart" width="300" height="300" data-values="65,59,90,81,56" data-test="Hello,World,Thats,The,Test"
+    canvas id="#{project.slug}" class="project_chart" width="300" height="300" data-values="#{project.values}" data-labels="#{project.labels}"
