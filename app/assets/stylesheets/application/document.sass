@@ -1,7 +1,7 @@
 $gray: #808080
 $primaryColor: #C9532E
 
-$menuPadding: 30px
+$menuPadding: 60px
 $borderWidth: 20px
 $border: $borderWidth solid $primaryColor
 
@@ -32,39 +32,14 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
     color: $gray
 
 #header 
-  background: image-url("top_bg.jpg") repeat-x center top
+  background: image-url("top_water_bg.jpg") repeat-x center top
   padding-top: $menuPadding
-
-  .menu_top 
-    width: 100%
-    border-top: $border
-    height: 52px
-
-    nav 
-      ul 
-        float: right
-        list-style: none
-        margin-top: -20px
-        li 
-          float: left
-          font-size: 14px
-          margin: 15px 5px 0
-          a 
-            color: white
-            padding: 6px 8px 5px
-            border-radius: 3px
-            &:hover 
-              text-decoration: none
-              background: rgba(black,.5)
-
-          &.active a, a:active 
-            border-bottom: 1px solid rgba(white,.5)
-            box-shadow: 0 1px 1px black inset
-            background: rgba(black,.5)
+  border-bottom: $border
+  +background-size(cover)
 
 #logo
   position: absolute
-  top: -($menuPadding+$borderWidth)
+  top: -$menuPadding
   z-index: 20
   border: $borderWidth/2 solid $primaryColor
 
