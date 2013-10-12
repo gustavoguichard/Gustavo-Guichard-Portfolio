@@ -7,7 +7,19 @@ jQuery ->
     $(this).closest(".alert").fadeOut()
   $.stellar()
 
-  
+  # Back to Top
+  $('body').append "<a href='#' class='back-to-top'><span class='arrow'></a>"
+  # SMOOTH SCROLL
+  jQuery(".back-to-top").on 'click', (e) ->
+    jQuery('html,body', document).animate({scrollTop:0}, 300)
+  # Control if back-to-top appear
+  $(document).on 'scroll', ->
+    if $(document).scrollTop() >= 280
+      jQuery(".back-to-top").addClass('appear')
+    else
+      jQuery(".back-to-top").removeClass('appear')
+
+  # Putting Graphics in the Homepage
   $(".project_chart").each((i,chart)->
     context = chart.getContext("2d")
     dataLabels = $(chart).data('labels').split(',')
@@ -26,5 +38,4 @@ jQuery ->
         ]
       }
       c = new Chart(context).Radar(data);
-      console.log c
   )

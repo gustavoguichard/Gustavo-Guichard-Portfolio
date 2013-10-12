@@ -257,3 +257,39 @@ footer#footer
   border: none
   border-bottom: 1px dashed lighten($primaryColor, 15%)
   border-radius: 0
+
+// Back to top
+.back-to-top
+  $size: 80px
+  z-index: 100
+  position: fixed
+  bottom: -$size
+  right: 0
+  display: block
+  height: $size
+  width: 80px
+  background: rgba(black,.7)
+  border-radius: 10px 0 0 0
+  +opacity(.35)
+  +transition(.3s)
+  &.appear
+    bottom: 0
+  &:hover
+    +opacity(1)
+    .arrow
+      bottom: 20px
+  .arrow
+    position: absolute
+    bottom: 15px
+    display: block
+    background: white
+    height: 20px
+    width: 20px
+    +transition(.3s)
+    +absolute-centering(20px)
+    +decorative-content(before, false)
+      +triangle(top, 30px, white)
+      position: relative
+      left: -12px
+      top: -20px
+      border-bottom-width: 24px
