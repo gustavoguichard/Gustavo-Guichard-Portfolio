@@ -1,33 +1,27 @@
 footer#footer
   .container
     .row
-      section.col-md-5
-        = raw @site_settings.footer_intro if @site_settings
-      section.col-md-4
-        address
-          = raw @site_settings.footer_contact if @site_settings
-      section.col-md-3
-        aside#social
-          = link_to "Github", "https://github.com/gustavoguichard", class: "Github", target: "_blank", rel: "tooltip", title: "Github"
-          = link_to "] Google +", "https://plus.google.com/110915017162031397251", class: "Google", target: "_blank", rel: "tooltip", title: "Google"
-          = link_to "Skype", "skype:gustavo.guichard", class: "Skype", rel: "tooltip", title: "Skype"
-          = link_to "Twitter", "http://twitter.com/#!/gustavoguichard", class: "Twitter", target: "_blank", rel: "tooltip", title: "Twitter"
-          = link_to "LinkedIn", "http://www.linkedin.com/pub/gustavo-guichard/32/838/315", class: "LinkedIn", target: "_blank", rel: "tooltip", title: "LinkedIn"
+      aside#social
+        = link_to "Github", "https://github.com/gustavoguichard", class: "Github", target: "_blank", rel: "tooltip", title: "Github"
+        = link_to "] Google +", "https://plus.google.com/110915017162031397251", class: "Google", target: "_blank", rel: "tooltip", title: "Google"
+        = link_to "Skype", "skype:gustavo.guichard", class: "Skype", rel: "tooltip", title: "Skype"
+        = link_to "Twitter", "http://twitter.com/#!/gustavoguichard", class: "Twitter", target: "_blank", rel: "tooltip", title: "Twitter"
+        = link_to "LinkedIn", "http://www.linkedin.com/pub/gustavo-guichard/32/838/315", class: "LinkedIn", target: "_blank", rel: "tooltip", title: "LinkedIn"
+    .row
+      section.col-md-6.col-md-offset-3.footer_intro
+        p Still not convinced? Are you wondering - why should I hire yet another 'web designer'? So you should take a look at <a href="http://gustavoguichard.com/portfolio"  rel="tooltip" title="Portfolio">my results</a>.
 
     .row
-      section.col-md-12
-        small#copyright
-          | Gustavo Guichard - #{Date.today.year} &nbsp;&nbsp;&nbsp;
-          = link_to "http://creativecommons.org/licenses/by-nc/3.0/deed.pt_BR", rel: "license" do
-            = image_tag "http://i.creativecommons.org/l/by-nc/3.0/88x31.png", alt:"Creative Commons License"
-          
-        .pull-right
-          - if @admin
-            | Logado como Admin | 
-            = link_to "Admin", admin_path, class:  "btn btn-mini" 
-            | | 
-            = link_to "Logout", logout_path, class:  "btn btn-mini"
-          - else
-            = content_tag 'a', class: 'btn btn-mini btn-danger', href: '/auth/twitter' do
-              i.icon-user
-              |  Login
+      small#copyright
+        | Gustavo Guichard - #{Date.today.year} &nbsp;&nbsp;&nbsp;
+        = link_to "http://creativecommons.org/licenses/by-nc/3.0/deed.pt_BR", rel: "license" do
+          = image_tag "http://i.creativecommons.org/l/by-nc/3.0/88x31.png", alt:"Creative Commons License"
+    
+    .row    
+      .pull-right
+        - if @admin
+          = link_to "Logout", logout_path, class:  "btn btn-mini btn-primary"
+        - else
+          = content_tag 'a', class: 'btn btn-mini btn-danger', href: '/auth/twitter' do
+            i.icon-user
+            |  Login

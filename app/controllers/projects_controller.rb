@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   respond_to :html, :json
-  skip_before_filter :protect_admin, only: [:index, :show]
+  # skip_before_filter :protect_admin, only: [:index, :show]
 
   def index
     if params[:search].present?

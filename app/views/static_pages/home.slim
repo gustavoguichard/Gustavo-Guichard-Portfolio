@@ -1,18 +1,21 @@
-section#intro.row
-  article.col-md-6
-    = raw @site_settings.intro_text if @site_settings
-    - if @site_settings && @site_settings.available
-      p= link_to "Available for Free Lance!", contact_path, :class => "btn btn-primary btn-lg"
-  aside.col-md-6.home-portfolio
-    = link_to portfolio_path do
-      - @projects.each do |project|
-        = image_tag project.thumbnail, width: 220, height: 160, class: "home-portfolio-item img-responsive"
-section#testimonials.row
-  .col-md-12
-    h2 Testimonials
-  .col-md-12
-    .row.testimonials_cont
-      = render @testimonials
-    - if @admin
-      .form-group
-        = link_to 'Novo Depoimento', new_testimonial_path, :class => "btn btn-green btn-primary btn-lg"
+section#intro.container.content_wrapper
+  .row
+    aside.col-md-5
+      h1#site_title Gustavo Guichard
+    article.col-md-7
+      h2 Front End + Rails Developer
+      p I deliver <strong>results</strong> through code. Just like that. If you are a designer, an agency, works with creativity or you just need a modern and functional web site, I can build/finish it. I'll do what's necessary to deliver your <strong>web site/app/facebook app/cms</strong> without compromising your deadline.
+      p And I'll do it with all the new web technologies and the cutting edge stuff, everything within <strong>HTML5, JS, CSS3, Ruby on Rails, Wordpress, node.js, multi-device support/responsive websites and SEO</strong> according to your needs. So, if you wanna build up your project, <a href="#contact">talk to me!</a>
+
+      - if Configuration[:available] == "true"
+        p= link_to "Available for Free Lance!", contact_path, :class => "btn btn-primary btn-lg"
+section#portfolio
+  = render @projects
+section#testimonials.container.content_wrapper
+  .row
+    .col-md-12
+      .row.testimonials_cont
+        = render @testimonials
+      - if @admin
+        .form-group
+          = link_to 'Novo Depoimento', new_testimonial_path, :class => "btn btn-green btn-primary btn-lg"

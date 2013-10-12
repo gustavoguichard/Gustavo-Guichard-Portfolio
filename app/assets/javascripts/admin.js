@@ -17,5 +17,6 @@
 //= require best_in_place
 //= require twitter/bootstrap
 //= require jquery.shuffle
+//= require jquery.stellar
 //= require static_pages
 //= require editable_pages

@@ -1,14 +1,8 @@
 header#header
   .menu_top
     nav.container
-      h1#logo
-        = link_to "Gustavo Guichard", root_path
-      ul
-        li[class="#{"active" if current_page? :root}"]
-          = link_to "Home", root_path
-        li[class="#{"active" if current_page? :portfolio or params[:action] == "show"}"]
-          = link_to "Portfolio", portfolio_path
-        li[class="#{"active" if current_page? :services}"]
-          = link_to "Services", services_path
-        li[class="#{"active" if current_page? :contact or params[:action] == "send_mail"}"]
-          = link_to "Contact", contact_path
+      .row
+        .col-md-3
+          = link_to root_path, id: "logo"
+            = image_tag avatar_url('facebook', 'gustavoguichard?size=large')
+        / = link_to "Contact", contact_path

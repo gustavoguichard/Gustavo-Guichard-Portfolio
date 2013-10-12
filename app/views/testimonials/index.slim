@@ -1,23 +1,24 @@
-h1 Testimonials
-table.table.table-striped
-  thead
-    tr
-      th Name
-      th Company
-      th Content
-      th Image
-      th Actions
-  tbody
-    - @testimonials.each do |testimonial|
+.container.content_wrapper
+  h1 Testimonials
+  table.table.table-striped
+    thead
       tr
-        td= testimonial.name
-        td
-          = company_link testimonial
-        td= raw testimonial.content
-        td
-          - avatar_image = image_tag testimonial.avatar
-          = link_to avatar_image, testimonial
-        td
-          = link_to 'Show', testimonial, :class => 'btn btn-mini'
-          = link_to 'Destroy', testimonial_path(testimonial), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger'
-= link_to 'Novo Depoimento', new_testimonial_path, :class => 'btn btn-green'
+        th Name
+        th Company
+        th Content
+        th Image
+        th Actions
+    tbody
+      - @testimonials.each do |testimonial|
+        tr
+          td= testimonial.name
+          td
+            = company_link testimonial
+          td= raw testimonial.content
+          td
+            - avatar_image = image_tag testimonial.avatar
+            = link_to avatar_image, testimonial
+          td
+            = link_to 'Show', testimonial, :class => 'btn btn-mini'
+            = link_to 'Destroy', testimonial_path(testimonial), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger'
+  = link_to 'Novo Depoimento', new_testimonial_path, :class => 'btn btn-green'

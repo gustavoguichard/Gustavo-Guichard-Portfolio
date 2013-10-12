@@ -1,22 +1,27 @@
 - title "Contact me"
-.row
-  .page-header.col-md-12
-    h2 Contact me
-section.row
-  aside.col-md-4.col-sm-5.col-md-push8.col-sm-push-8
-    h3 Contact Info
-    address
-      = raw @site_settings.contact_info if @site_settings
-  .col-md-1
-  #contact_form.col-md-7.col-sm-7.col-md-pull-5.col-sm-pull-5
-    = form_for @message do |f|
-      .form-group
-        = f.label :name
-        = f.text_field :name, class: "form-control", placeholder: "Name"
-      .form-group
-        = f.label :email
-        = f.text_field :email, class: "form-control", placeholder: "Email"
-      .form-group
-        = f.label :body
-        = f.text_area :body, class: "form-control", placeholder: "Message", rows: 6
-      = f.submit "Send it!", class: "btn btn-primary btn-lg"
+.container.content_wrapper
+  .row
+    .page-header.col-md-12
+      h2 Contact me
+  section.row
+    aside.col-md-4.col-sm-5.col-md-push8.col-sm-push-8
+      h3 Contact Info
+      address
+        span Skype:
+        = link_to "gustavo.guichard", "skype:gustavo.guichard", rel: "tooltip", title: "Add as a contact"
+        br/
+        span Email:
+        = link_to "talk[at]gustavoguichard.com", "mailto:talk@gustavoguichard.com", rel: "tooltip", title: "Send with your email client"
+    .col-md-1
+    #contact_form.col-md-7.col-sm-7.col-md-pull-5.col-sm-pull-5
+      = form_for @message do |f|
+        .form-group
+          = f.label :name
+          = f.text_field :name, class: "form-control", placeholder: "Name"
+        .form-group
+          = f.label :email
+          = f.text_field :email, class: "form-control", placeholder: "Email"
+        .form-group
+          = f.label :body
+          = f.text_area :body, class: "form-control", placeholder: "Message", rows: 6
+        = f.submit "Send it!", class: "btn btn-primary btn-lg"

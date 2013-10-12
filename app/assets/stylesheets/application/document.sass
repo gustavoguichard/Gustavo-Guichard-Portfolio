@@ -1,24 +1,46 @@
 $gray: #808080
-$orange: #C9532E
+$primaryColor: #C9532E
+
+$menuPadding: 30px
+$borderWidth: 20px
+$border: $borderWidth solid $primaryColor
+
+
+html
+  overflow: scroll
+  body
+    overflow: hidden
+
 +selection
-  background: $orange
+  background: $primaryColor
   color: white
 
 h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul 
   font-weight: 700
 
+#main
+  .content_wrapper
+    padding-top: 4em
+    padding-bottom: 4em
+
+  .field_with_errors
+    input, textarea 
+      background: #fee
+      border-color: #f88
+  small 
+    font-size: 90%
+    color: $gray
+
 #header 
   background: image-url("top_bg.jpg") repeat-x center top
-  position: relative
-  padding-top: 30px
+  padding-top: $menuPadding
 
   .menu_top 
     width: 100%
-    background: image-url("top_menu.jpg") repeat-x bottom
+    border-top: $border
     height: 52px
 
     nav 
-      position: relative
       ul 
         float: right
         list-style: none
@@ -40,65 +62,49 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
             box-shadow: 0 1px 1px black inset
             background: rgba(black,.5)
 
-  h1#logo a 
+#logo
+  position: absolute
+  top: -($menuPadding+$borderWidth)
+  z-index: 20
+  border: $borderWidth/2 solid $primaryColor
+
+#site_title
+  font-size: 7em
+  text-transform: uppercase
+  text-align: left
+  margin-top: 75px
+  color: #f3f3f3
+  line-height: 75px
+  letter-spacing: -7px
+
+.home_project
+  width: 100%
+  height: 550px
+  position: relative
+  background: transparent left top no-repeat
+  +background-size(cover)
+  border-bottom: $border
+  &:first-child
+    border-top: $border
+  .project_title
     position: absolute
-    left: -26px
-    top: -2px
+    bottom: 0
+    background: $primaryColor
     display: block
-    width: 156px
-    height: 116px
-    text-indent: -999em
-    overflow: hidden
-    z-index: 20
-    background: image-url("logo.png") no-repeat center
+    padding: .2em .6em 0
+    margin: 0
+    color: white
+    font-size: 3em
+    letter-spacing: -3px
+    text-transform: uppercase
+    a:link, a:visited
+      color: inherit
 
-#main 
-  padding-top: 100px
-  padding-bottom: 40px
-
-  .field_with_errors 
-    input, textarea 
-      background: #fee
-      border-color: #f88
-
-  small 
-    font-size: 90%
-    color: $gray
 
 #intro
   p
     font-size: 1.2em
     margin: 20px 0 30px
-
-  .home-portfolio-item
-    width: 33%
-    box-shadow: 0 1px 3px rgba(black,.4)
-    +transition(.2s)
-  .home-portfolio
-    cursor: pointer
-    position: relative
-    z-index: 20
-    &:hover .home-portfolio-item
-      position: relative
-      z-index: -1
-      &:nth-child(1)
-        +transform(translate(0,-40px) scale(1.15,1.15) rotateY(-41deg) translateZ(30px))
-      &:nth-child(2)
-        +transform(translate(0,-40px) scale(1.15,1.15) translateZ(30px))
-      &:nth-child(3)
-        +transform(translate(0,-40px) scale(1.15,1.15) rotateY(41deg) translateZ(30px))
-      &:nth-child(4)
-        +transform(scale(1.15,1.15) rotateY(-41deg) translateZ(30px))
-      &:nth-child(5)
-        +transform(scale(1.15,1.15) translateZ(40px))
-      &:nth-child(6)
-        +transform(scale(1.15,1.15) rotateY(41deg) translateZ(30px))
-      &:nth-child(7)
-        +transform(translate(0,40px) scale(1.15,1.15) rotateY(-41deg) translateZ(30px))
-      &:nth-child(8)
-        +transform(translate(0,40px) scale(1.15,1.15) translateZ(30px))
-      &:nth-child(9)
-        +transform(translate(0,40px) scale(1.15,1.15) rotateY(41deg) translateZ(30px))
 
 #testimonials
   h2
@@ -213,13 +219,15 @@ footer#footer
   background: #ddd 
   padding-top: 3em
   padding-bottom: 1em
+  text-align: center
   
   #social
+    margin-bottom: 1em
     a 
       +image-replace("social.png")
       width: 23px
       height: 23px
-      float: left
+      display: inline-block
       margin-right: 6px
       +transition(all .2s)
 
@@ -240,3 +248,8 @@ footer#footer
 
       &.RSS 
         background-position: -150px 0
+
+  .footer_intro
+    font-size: 1.8em
+    line-height: 1.4em
+    margin-bottom: 2em

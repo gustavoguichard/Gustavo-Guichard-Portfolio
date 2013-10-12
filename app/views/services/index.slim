@@ -1,9 +1,10 @@
 - title "Services"
-.row
-  .page-header.col-md-12
-    h2 Services
-section#services.row
-  = render @services
-- if @admin
-  .form-group
-    = link_to 'Novo Serviço', new_service_path, class: "btn btn-primary btn-lg"
+.container.content_wrapper
+  .row
+    .page-header.col-md-12
+      h2 Services
+  section#services.row
+    = render @services
+  - if @admin
+    .form-group
+      = link_to 'Novo Serviço', new_service_path, class: "btn btn-primary btn-lg"

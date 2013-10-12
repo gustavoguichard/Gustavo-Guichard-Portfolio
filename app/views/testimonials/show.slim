@@ -1,25 +1,26 @@
-h1
-  = link_to 'Testimonial', testimonials_path
-  | from: #{best_in_place @testimonial, :name}
-p
-  b Company
-  br
-    = best_in_place @testimonial, :company
-p
-  b Job
-  br
-    = best_in_place @testimonial, :job
-p
-  b Website
-  br
-    = best_in_place @testimonial, :website
-p
-  b Content
-= best_in_place @testimonial, :content, type: :textarea, sanitize: false
-p
-  = image_tag @testimonial.avatar
-= form_for @testimonial do |f|
-  = f.file_field :avatar, class: 'text_field'
-  .form-actions
-    = f.submit nil, class: 'btn'
-    = link_to 'Delete', testimonial_path(@testimonial), method: 'delete', confirm: 'Are you sure?', class: 'btn btn-danger'
+.container.content_wrapper
+  h1
+    = link_to 'Testimonial', testimonials_path
+    | from: #{best_in_place @testimonial, :name}
+  p
+    b Company
+    br
+      = best_in_place @testimonial, :company
+  p
+    b Job
+    br
+      = best_in_place @testimonial, :job
+  p
+    b Website
+    br
+      = best_in_place @testimonial, :website
+  p
+    b Content
+  = best_in_place @testimonial, :content, type: :textarea, sanitize: false
+  p
+    = image_tag @testimonial.avatar
+  = form_for @testimonial do |f|
+    = f.file_field :avatar, class: 'text_field'
+    .form-actions
+      = f.submit nil, class: 'btn'
+      = link_to 'Delete', testimonial_path(@testimonial), method: 'delete', confirm: 'Are you sure?', class: 'btn btn-danger'

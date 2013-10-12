@@ -59,6 +59,7 @@ gem 'carrierwave'
 gem 'carrierwave-postgresql'
 gem 'postgresql_lo_streamer', git: 'git://github.com/diogob/postgresql_lo_streamer.git'
 gem 'rmagick'
+gem 'avatars.io'
 
 # Cache
 gem 'cache_digests'

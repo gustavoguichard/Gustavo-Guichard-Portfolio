@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131010183809) do
+ActiveRecord::Schema.define(:version => 20131012064335) do
 
   create_table "configurations", :force => true do |t|
     t.text     "name"
@@ -53,19 +53,6 @@ ActiveRecord::Schema.define(:version => 20131010183809) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "image",      :null => false
-  end
-
-  create_table "site_settings", :force => true do |t|
-    t.string   "name"
-    t.text     "intro_text"
-    t.boolean  "available"
-    t.text     "footer_intro"
-    t.text     "footer_contact"
-    t.text     "contact_info"
-    t.text     "contact_text"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-    t.string   "password"
   end
 
   create_table "taggings", :force => true do |t|

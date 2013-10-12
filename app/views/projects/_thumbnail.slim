@@ -1,0 +1,6 @@
+- shadows = ["shadow1", "shadow2", "shadow3", "shadow3b", "shadow4", "shadow4b"]
+= content_tag "article", data: {id: "id-#{project.id}", groups: project.all_tags, object: "#{project.to_json if @admin}"}, class: "portfolio_item col-md-3 #{shadows.sample}" do
+  = link_to image_tag(project.thumbnail, width: 220, height: 160, class: "img-responsive"), project
+  h5= project.title
+  small= project.tag_names
+  = link_to raw('&times;'), project, confirm: 'Are you sure?', method: :delete, class: 'close' if @admin

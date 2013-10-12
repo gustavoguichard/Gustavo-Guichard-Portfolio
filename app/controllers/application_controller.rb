@@ -6,13 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :protect_admin
 
   def is_admin
-    @site_settings = saved_settings
-    if @site_settings.nil?
-      @admin = true
-      @site_settings = SiteSetting.new
-    else
-      @admin = session[:nickname] == ENV['TWITTER_USERNAME']
-    end
+    @admin = session[:nickname] == ::Configuration[:twitter_username]
   end
 
   def protect_admin

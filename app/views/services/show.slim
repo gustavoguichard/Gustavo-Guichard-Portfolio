@@ -1,14 +1,15 @@
-h1
-  = link_to 'Services:', services_path
-  = best_in_place @service, :title
-p
-  = best_in_place @service, :content, type: :textarea
-p
-  = image_tag @service.image
-= form_for @service do |f|
-  .control-group
-    .controls
-      = f.file_field :image, class: 'text_field'
-  .form-actions
-    = f.submit nil, class: 'btn'
-    = link_to 'Delete', service_path(@service), method: 'delete', confirm: 'Are you sure?', class: 'btn btn-danger'
+.container.content_wrapper
+  h1
+    = link_to 'Services:', services_path
+    = best_in_place @service, :title
+  p
+    = best_in_place @service, :content, type: :textarea
+  p
+    = image_tag @service.image
+  = form_for @service do |f|
+    .control-group
+      .controls
+        = f.file_field :image, class: 'text_field'
+    .form-actions
+      = f.submit nil, class: 'btn'
+      = link_to 'Delete', service_path(@service), method: 'delete', confirm: 'Are you sure?', class: 'btn btn-danger'
