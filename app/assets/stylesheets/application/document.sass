@@ -2,7 +2,7 @@ $gray: #808080
 $primaryColor: #C9532E
 
 $menuPadding: 60px
-$borderWidth: 20px
+$borderWidth: 10px
 $border: $borderWidth solid $primaryColor
 
 
@@ -32,7 +32,7 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
     color: $gray
 
 #header 
-  background: image-url("top_water_bg.jpg") repeat-x center top
+  background: image-url("top_wave_bg.jpg") repeat-x center top
   padding-top: $menuPadding
   border-bottom: $border
   +background-size(cover)
@@ -66,10 +66,10 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
     border-top: $border
   .project_title
     position: absolute
-    bottom: 0
+    top: 0
     background: $primaryColor
     display: block
-    padding: .2em .6em 0
+    padding: 0 .6em .2em
     margin: 0
     color: white
     font-size: 3em
