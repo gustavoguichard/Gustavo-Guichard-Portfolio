@@ -4,6 +4,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require jquery.shuffle
 //= require jquery.stellar
+//= require Chart
 //= require static_pages

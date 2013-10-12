@@ -16,7 +16,7 @@
 //= require jquery.purr
 //= require best_in_place
 //= require twitter/bootstrap
-//= require jquery.shuffle
 //= require jquery.stellar
+//= require Chart
 //= require static_pages
 //= require editable_pages

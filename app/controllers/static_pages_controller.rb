@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
 	
 	def home
 		@testimonials = Testimonial.all(:order => "position")
-		@projects = Project.limit(5).all(:order => "position")
+		@projects = Project.limit(12).all(:order => "position")
 	end
 
 	def contact

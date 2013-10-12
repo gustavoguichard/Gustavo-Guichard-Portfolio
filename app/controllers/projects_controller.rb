@@ -1,6 +1,5 @@
 class ProjectsController < ApplicationController
   respond_to :html, :json
-  # skip_before_filter :protect_admin, only: [:index, :show]
 
   def index
     if params[:search].present?
@@ -44,7 +43,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project = Project.find(params[:id])
     @project.destroy if @admin
-    redirect_to portfolio_url
+    redirect_to projects_url
   end
 
   def sort

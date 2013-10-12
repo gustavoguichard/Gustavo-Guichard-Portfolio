@@ -6,4 +6,5 @@ article.home_project style="background-image: url(#{project.image});" data-stell
         = link_to project.title, project.visit_url, target: "_blank"
       - else
         = project.title
-    / small= project.tag_names
+    
+    canvas id="#{project.slug}" class="project_chart" width="300" height="300" data-values="65,59,90,81,56" data-test="Hello,World,Thats,The,Test"

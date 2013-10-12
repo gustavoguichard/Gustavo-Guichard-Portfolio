@@ -100,6 +100,15 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
     a:link, a:visited
       color: inherit
 
+  .project_chart
+    position: absolute
+    right: 10px
+    top: 10px
+    background: rgba(white,.8)
+    border-radius: 50%
+    padding: 10px
+    border: 2px solid gray
+
 
 #intro
   p
@@ -173,22 +182,6 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
     border: 1px solid #a0a0a0
     border-radius: 3px
 
-
-#services 
-  .service 
-    margin-bottom: 4em
-    position: relative
-    @media (min-width: 992px)
-      height: 160px
-    img
-      margin-bottom: 1em
-      margin-top: 1em
-    .close
-      position: absolute
-      top: 5px
-      right: 25px
-      color: red
-
 .nav-pills 
   font-size: 12px
   margin-bottom: 36px
@@ -250,6 +243,17 @@ footer#footer
         background-position: -150px 0
 
   .footer_intro
-    font-size: 1.8em
+    font-size: 1.4em
     line-height: 1.4em
     margin-bottom: 2em
+    font-family: monospace
+
+.alert.alert-block
+  padding: 15px
+  color: white
+  background-color: $primaryColor
+  font-weight: 700
+  margin-bottom: 0
+  border: none
+  border-bottom: 1px dashed lighten($primaryColor, 15%)
+  border-radius: 0

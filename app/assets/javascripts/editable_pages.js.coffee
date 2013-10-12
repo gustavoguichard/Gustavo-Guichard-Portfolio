@@ -25,13 +25,3 @@ jQuery ->
         object["testimonials"] = $.parseJSON(object_string)
         $.post('/testimonials/sort/', object)
     })
-    $('#services').sortable({update: (event, ui) ->
-        object = {services: ""}
-        object_string = '{'
-        $('.service', $(this)).each (index, el) ->
-          object_string += '"item' + index + '": ' + ($(this).attr('data-object')) + ', '
-        object_string = object_string.slice(0, -2)
-        object_string += '}'
-        object["services"] = $.parseJSON(object_string)
-        $.post('/services/sort/', object)
-    })
