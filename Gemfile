@@ -11,6 +11,8 @@ gem 'simple_form'
 
 gem 'RedCloth' # Suporte para Textile
 
+gem 'taps'
+
 gem 'google-analytics-rails'
 
 group :development do
