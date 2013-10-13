@@ -24,8 +24,8 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
   font-style: normal
   text-decoration: inherit
   -webkit-font-smoothing: antialiased
-.icon-external-link:before
-  content: "\f08e"
+  a &
+    text-decoration: none !important
 .icon-facebook:before
   content: "\f082"
 .icon-github:before
@@ -48,13 +48,18 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
     padding-top: 4em
     padding-bottom: 4em
 
+  small 
+    font-size: 90%
+    color: $gray
+
+form
+  textarea
+    font-weight: 700
   .field_with_errors
     input, textarea 
       background: #fee
       border-color: #f88
-  small 
-    font-size: 90%
-    color: $gray
+
 
 #header 
   background: image-url("top_wave_bg.jpg") repeat-x center top
@@ -108,7 +113,8 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
   .project_chart
     position: absolute
     right: 10px
-    top: 10px
+    top: 50%
+    margin-top: -150px
     background: rgba(white,.8)
     border-radius: 50%
     padding: 10px
@@ -125,20 +131,55 @@ h1, h2, h3, h4, h5, input[type=text], #header, ul.nav, nav ul
   bottom: 0
   right: 0
   z-index: 30
-  background: red
+  background: #333
+  color: white
   box-shadow: 0 0 10px rgba(black,.4)
   width: 90%
   margin-right: -90%
   +transition(margin .3s)
-  &:target
+  a
+    color: white
+    font-weight: 700
+  &:target, &.active
     margin-right: 0
-    + #page_content
+    ~ #page_content
       margin-left: -90%
-  @media (min-width: 570px)
-    margin-right: -500px
-    width: 500px
-    &:target + #page_content
-      margin-left: -500px
+      #contact_buttons
+        &.fixed
+          right: 91% 
+        .close-bt
+          display: block
+        .open-bt
+          display: none
+  @media (min-width: 470px)
+    margin-right: -400px
+    width: 400px
+    &:target ~ #page_content, &.active ~ #page_content
+      margin-left: -400px
+      #contact_buttons.fixed
+        right: 410px
+
+#contact_buttons
+  position: absolute
+  top: $menuPadding + 10px
+  right: 10px
+  &.fixed
+    position: fixed
+    top: 10px
+    z-index: 300
+    i
+      background: $primaryColor
+      color: white
+  i
+    font-size: 25px
+    color: $primaryColor
+    padding: 3px 5px
+    border-radius: 3px
+    +transition(.3s)
+  .close-bt
+    display: none
+  .open-bt
+    display: block
 
 #intro
   p
@@ -287,6 +328,9 @@ footer#footer
   border: none
   border-bottom: 1px dashed lighten($primaryColor, 15%)
   border-radius: 0
+  z-index: 100
+  position: absolute
+  width: 100%
 
 // Back to top
 .back-to-top

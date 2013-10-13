@@ -1,2 +1,22 @@
 aside#contact
-  h1 Hey
+  .row
+    .col-md-12
+      = link_to raw('&times;'), '#', class: 'close'
+      h2 Contact me
+      address
+        span Skype:
+        = link_to "gustavo.guichard", "skype:gustavo.guichard", rel: "tooltip", title: "Add as a contact"
+        br/
+        span Email:
+        = link_to "talk[at]gustavoguichard.com", "mailto:talk@gustavoguichard.com", rel: "tooltip", title: "Send with your email client"
+      = form_for @message do |f|
+        .form-group
+          = f.label :name
+          = f.text_field :name, class: "form-control", placeholder: "Name"
+        .form-group
+          = f.label :email
+          = f.text_field :email, class: "form-control", placeholder: "Email"
+        .form-group
+          = f.label :body
+          = f.text_area :body, class: "form-control", placeholder: "Message", rows: 6
+        = f.submit "Send it!", class: "btn btn-primary btn-lg pull-right"

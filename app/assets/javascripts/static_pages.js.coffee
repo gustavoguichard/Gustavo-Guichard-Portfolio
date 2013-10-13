@@ -3,9 +3,18 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
   $("a[rel=tooltip]").tooltip({placement: 'bottom'})
-  $("a.close").on "click", ->
-    $(this).closest(".alert").fadeOut()
+  $("a.close").on("click", ->
+    $(this).closest(".alert").clearQueue().slideUp()
+  ).closest(".alert").delay(4000).slideUp()
   $.stellar()
+
+  $contactSection = $('#contact')
+  $("a[href='#']").on 'click', (e)->
+    e.preventDefault()
+    $contactSection.removeClass('active')
+  $("a[href='#contact']").on 'click', (e)->
+    e.preventDefault()
+    $contactSection.addClass('active')
 
   # Back to Top
   $('body').append "<a href='#' class='back-to-top'><span class='arrow'></a>"
@@ -13,9 +22,20 @@ jQuery ->
   jQuery(".back-to-top").on 'click', (e) ->
     jQuery('html,body', document).animate({scrollTop:0}, 300)
   # Control if back-to-top appear
-  $(document).on 'scroll', ->
-    if $(document).scrollTop() >= 280
+  $document = $(document)
+  $contactBt = $("#contact_buttons")
+  contactOffset = $contactBt.offset().top - 10
+  $document.on 'scroll', ->
+    # Fix contact button
+    if $document.scrollTop() >= contactOffset
+      $contactBt.addClass('fixed')
+    # Unfix contact button
+    else
+      $contactBt.removeClass('fixed')
+    # Show Back to top button
+    if $document.scrollTop() >= 280
       jQuery(".back-to-top").addClass('appear')
+      # Hide Back to top button
     else
       jQuery(".back-to-top").removeClass('appear')
 
