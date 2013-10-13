@@ -6,6 +6,8 @@ jQuery ->
   $document = $(document)
   $contactBt = $("#contact_buttons")
   $contactSection = $('#contact')
+  # If browser is wider than this value, then parallax and Graphs will work
+  minBrowserWidthForDinamics = 700
 
   # Get rid of flash messages
   $("a.close").on("click", ->
@@ -13,15 +15,16 @@ jQuery ->
   ).closest(".alert").delay(4000).slideUp()
 
   # Initiate parallax
-  $.stellar()
+  $.stellar() if $document.width() >= minBrowserWidthForDinamics
 
   # Open and close contact section
-  $("#contact").swipe {
-    swipe: (event, direction, distance, duration, fingerCount)->
-      coverage = distance / $(event.currentTarget).width() >= 0.7
-      if coverage and direction == "right"
-        $contactSection.removeClass('active')
-  }
+  if $document.width() < minBrowserWidthForDinamics
+    $("#contact").swipe {
+      swipe: (event, direction, distance, duration, fingerCount)->
+        coverage = distance / $(event.currentTarget).width() >= 0.7
+        if coverage and direction == "right"
+          $contactSection.removeClass('active')
+    }
   $("a[href='#']").on 'click', (e)->
     e.preventDefault()
     $contactSection.removeClass('active')
@@ -51,22 +54,23 @@ jQuery ->
       jQuery(".back-to-top").removeClass('appear')
 
   # Putting Graphics in the Homepage
-  $(".project_chart").each((i,chart)->
-    context = chart.getContext("2d")
-    dataLabels = $(chart).data('labels').split(',')
-    dataValues = $(chart).data('values').split(',')
-    if dataValues.length > 1 and dataLabels.length > 1
-      data = {
-        labels : dataLabels
-        datasets : [
-          {
-            fillColor : "rgba(151,187,205,0.5)"
-            strokeColor : "rgba(151,187,205,1)"
-            pointColor : "rgba(151,187,205,1)"
-            pointStrokeColor : "#fff"
-            data : dataValues
-          }
-        ]
-      }
-      c = new Chart(context).Radar(data);
-  )
+  if $document.width() >= minBrowserWidthForDinamics
+    $(".project_chart").each((i,chart)->
+      context = chart.getContext("2d")
+      dataLabels = $(chart).data('labels').split(',')
+      dataValues = $(chart).data('values').split(',')
+      if dataValues.length > 1 and dataLabels.length > 1
+        data = {
+          labels : dataLabels
+          datasets : [
+            {
+              fillColor : "rgba(151,187,205,0.5)"
+              strokeColor : "rgba(151,187,205,1)"
+              pointColor : "rgba(151,187,205,1)"
+              pointStrokeColor : "#fff"
+              data : dataValues
+            }
+          ]
+        }
+        c = new Chart(context).Radar(data);
+    )
