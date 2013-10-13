@@ -10,7 +10,7 @@ html class='no-js' lang='en'
 
   body.pages
     = render "flashes"
-    = render "sidebar"
+    = yield :sidebar
     #page_content
       = render "header"
 
