@@ -16,14 +16,11 @@ jQuery ->
   $.stellar()
 
   # Open and close contact section
-  $("#page_content, #contact").swipe {
+  $("#contact").swipe {
     swipe: (event, direction, distance, duration, fingerCount)->
       coverage = distance / $(event.currentTarget).width() >= 0.7
-      if coverage
-        if direction == "left"
-          $contactSection.addClass('active')
-        if direction == "right"
-          $contactSection.removeClass('active')
+      if coverage and direction == "right"
+        $contactSection.removeClass('active')
   }
   $("a[href='#']").on 'click', (e)->
     e.preventDefault()
