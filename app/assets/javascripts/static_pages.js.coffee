@@ -14,9 +14,6 @@ jQuery ->
     $(this).closest(".alert").clearQueue().slideUp()
   ).closest(".alert").delay(4000).slideUp()
 
-  # Initiate parallax
-  $.stellar() if $document.width() >= minBrowserWidthForDinamics
-
   # Open and close contact section
   if $document.width() < minBrowserWidthForDinamics
     $("#contact").swipe {

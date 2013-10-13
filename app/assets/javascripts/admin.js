@@ -15,7 +15,6 @@
 //= require jquery-ui
 //= require best_in_place
 //= require twitter/bootstrap
-//= require jquery.stellar
 //= require jquery.TouchSwipe
 //= require Chart
 //= require static_pages
