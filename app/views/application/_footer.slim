@@ -2,11 +2,18 @@ footer#footer
   .container
     .row
       aside#social
-        = link_to "Github", "https://github.com/gustavoguichard", class: "Github", target: "_blank", rel: "tooltip", title: "Github"
-        / = link_to "] Google +", "https://plus.google.com/110915017162031397251", class: "Google", target: "_blank", rel: "tooltip", title: "Google"
-        = link_to "Skype", "skype:gustavo.guichard", class: "Skype", rel: "tooltip", title: "Skype"
-        / = link_to "Twitter", "http://twitter.com/#!/gustavoguichard", class: "Twitter", target: "_blank", rel: "tooltip", title: "Twitter"
-        = link_to "LinkedIn", "http://www.linkedin.com/pub/gustavo-guichard/32/838/315", class: "LinkedIn", target: "_blank", rel: "tooltip", title: "LinkedIn"
+        = link_to "https://github.com/gustavoguichard", target: "_blank" do
+          i.icon-github
+        / = link_to "https://plus.google.com/110915017162031397251", target: "_blank" do
+        /   i.icon-google-plus
+        = link_to "skype:gustavo.guichard" do
+          i.icon-skype
+        / = link_to "http://twitter.com/#!/gustavoguichard", target: "_blank" do
+        /   i.icon-twitter
+        = link_to "http://www.linkedin.com/pub/gustavo-guichard/32/838/315", target: "_blank" do
+          i.icon-linkedin
+        = link_to "http://facebook.com/gustavoguichard", target: "_blank" do
+          i.icon-facebook
     .row
       section.col-md-6.col-md-offset-3.footer_intro
         p

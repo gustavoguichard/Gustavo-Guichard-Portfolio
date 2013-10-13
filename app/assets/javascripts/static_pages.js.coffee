@@ -2,13 +2,22 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
-  $("a[rel=tooltip]").tooltip({placement: 'bottom'})
+  # Variables
+  $document = $(document)
+  $contactBt = $("#contact_buttons")
+  $contactSection = $('#contact')
+
+  # Get rid of flash messages
   $("a.close").on("click", ->
     $(this).closest(".alert").clearQueue().slideUp()
   ).closest(".alert").delay(4000).slideUp()
+
+  # Initiate parallax
   $.stellar()
 
-  $contactSection = $('#contact')
+  # Open and close contact section
+  $('body').on 'swipeleft', ->
+    alert "Hey"
   $("a[href='#']").on 'click', (e)->
     e.preventDefault()
     $contactSection.removeClass('active')
@@ -22,8 +31,6 @@ jQuery ->
   jQuery(".back-to-top").on 'click', (e) ->
     jQuery('html,body', document).animate({scrollTop:0}, 300)
   # Control if back-to-top appear
-  $document = $(document)
-  $contactBt = $("#contact_buttons")
   contactOffset = $contactBt.offset().top - 10
   $document.on 'scroll', ->
     # Fix contact button

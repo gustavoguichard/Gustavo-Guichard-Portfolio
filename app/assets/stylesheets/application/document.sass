@@ -288,30 +288,14 @@ footer#footer
   #social
     margin-bottom: 1em
     a 
-      +image-replace("social.png")
-      width: 23px
-      height: 23px
+      font-size: 1.5em
+      margin-right: .5em
+      color: #333
       display: inline-block
-      margin-right: 6px
-      +transition(all .2s)
-
-      &.Github 
-        background-position: 0 0
-
-      &.Google 
-        background-position: -30px 0
-
-      &.Skype 
-        background-position: -60px 0
-
-      &.Twitter 
-        background-position: -90px 0
-
-      &.LinkedIn 
-        background-position: -120px 0
-
-      &.RSS 
-        background-position: -150px 0
+      +transition(.3s)
+      &:hover
+        color: $primaryColor
+        +transform(scale(1.2,1.2))
 
   .footer_intro
     font-size: 1.4em

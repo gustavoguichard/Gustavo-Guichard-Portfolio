@@ -13,10 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require jquery.purr
 //= require best_in_place
 //= require twitter/bootstrap
 //= require jquery.stellar
+//= require jquery.event.swipe
 //= require Chart
 //= require static_pages
 //= require editable_pages
