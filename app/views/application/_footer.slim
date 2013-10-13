@@ -31,4 +31,4 @@ footer#footer
         - if @admin
           = link_to "Logout", logout_path, class:  "btn btn-mini btn-primary"
         - else
-          = link_to "Login", login_path, class: 'btn btn-mini btn-danger'
+          = link_to "Login", '/auth/twitter', class: 'btn btn-mini btn-danger'

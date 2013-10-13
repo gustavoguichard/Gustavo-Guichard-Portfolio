@@ -4,7 +4,6 @@ Gustavoguichard::Application.routes.draw do
   end
   
   match '/send_mail/' => 'static_pages#send_mail', :as => :send_mail
-  match '/login/' => 'sessions#new', :as => :login
   match '/auth/:provider/callback' => 'sessions#create'
   match '/logout/' => 'sessions#destroy', :as => :logout
  
