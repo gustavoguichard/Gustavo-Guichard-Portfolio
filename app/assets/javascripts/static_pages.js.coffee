@@ -16,8 +16,10 @@ jQuery ->
   $.stellar()
 
   # Open and close contact section
-  $('body').on 'swipeleft', ->
-    alert "Hey"
+  $document.on 'swipeleft', ->
+    $contactSection.addClass('active')
+  $document.on 'swiperight', ->
+    $contactSection.removeClass('active')
   $("a[href='#']").on 'click', (e)->
     e.preventDefault()
     $contactSection.removeClass('active')
