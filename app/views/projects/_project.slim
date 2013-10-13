@@ -1,6 +1,5 @@
 article.home_project style="background-image: url(#{project.image});"
   .container
-    / = link_to image_tag(project.thumbnail, width: 220, height: 160, class: "img-responsive"), project
     h2.project_title
       - unless project.visit_url.empty?
         = link_to project.title, project.visit_url, target: "_blank"
