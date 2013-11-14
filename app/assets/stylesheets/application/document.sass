@@ -65,25 +65,29 @@ form
   background: image-url("top_wave_bg.jpg") repeat-x center top
   padding-top: $menuPadding
   +background-size(cover)
+  border-bottom: $borderWidth/2 solid $primaryColor
 
 #logo
   position: absolute
   top: -$menuPadding
   z-index: 20
-  border: $borderWidth/2 solid #bbb
-  border-radius: 30px
+  border: $borderWidth/2 solid $primaryColor
+  border-radius: 50%
+  overflow: hidden
+  display: block
+  width: 150px
+  height: 150px
+  background: $primaryColor no-repeat center
+  +background-size(cover)
 
 #site_title
-  font-size: 7em
+  font-size: 6em
+  color: #eae9e5
   text-transform: uppercase
   text-align: left
   margin-top: 75px
-  color: #eaeaea
-  line-height: 75px
-  letter-spacing: -7px
-  @media (max-width: 1199px)
-    font-size: 6em
-    line-height: 64px
+  line-height: 64px
+  letter-spacing: -4px
   @media (max-width: 495px)
     font-size: 4.6em
     line-height: 50px
@@ -234,31 +238,31 @@ form
       left: 215px
       color: red
     
-    &.shadow1::after
-      background-image: image-url("shadows/shadow1.png")
-    &.shadow2::after
-      background-image: image-url("shadows/shadow2.png")
-    &.shadow3::after
-      background-image: image-url("shadows/shadow3.png")
-    &.shadow3b::after
-      background-image: image-url("shadows/shadow3b.png")
-    &.shadow4::after
-      background-image: image-url("shadows/shadow4.png")
-    &.shadow4b::after
-      background-image: image-url("shadows/shadow4b.png")
+    // &.shadow1::after
+    //   background-image: image-url("shadows/shadow1.png")
+    // &.shadow2::after
+    //   background-image: image-url("shadows/shadow2.png")
+    // &.shadow3::after
+    //   background-image: image-url("shadows/shadow3.png")
+    // &.shadow3b::after
+    //   background-image: image-url("shadows/shadow3b.png")
+    // &.shadow4::after
+    //   background-image: image-url("shadows/shadow4.png")
+    // &.shadow4b::after
+    //   background-image: image-url("shadows/shadow4b.png")
 
-.image_portfolio 
-  position: relative
-  padding-bottom: 40px
-  +decorative-content
-    +image-replace("shadows/shadow_big.png")
-    top: 148px
-    left: -11px
-    z-index: -5
+// .image_portfolio 
+//   position: relative
+//   padding-bottom: 40px
+//   +decorative-content
+//     +image-replace("shadows/shadow_big.png")
+//     top: 148px
+//     left: -11px
+//     z-index: -5
 
-  img 
-    border: 1px solid #a0a0a0
-    border-radius: 3px
+//   img 
+//     border: 1px solid #a0a0a0
+//     border-radius: 3px
 
 .nav-pills 
   font-size: 12px
