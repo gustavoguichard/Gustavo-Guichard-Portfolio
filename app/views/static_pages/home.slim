@@ -16,7 +16,7 @@ section#intro.container.content_wrapper
       p And I'll do it with all the new web technologies and the cutting edge stuff, everything within <strong>HTML5, JS, CSS3, Ruby on Rails, Wordpress, node.js, multi-device support/responsive websites and SEO</strong> according to your needs. So, if you wanna build up your project, <a href="#contact">talk to me!</a>
 
       - if Configuration[:available] == "true"
-        p= link_to "Available for Free Lance!", "#contact", :class => "btn btn-primary btn-lg"
+        p= link_to "Available for Free Lance!", "#contact", class: "btn btn-primary btn-lg"
 section#portfolio
   = render @projects
 section#testimonials.container.content_wrapper
@@ -26,4 +26,4 @@ section#testimonials.container.content_wrapper
         = render @testimonials
       - if @admin
         .form-group
-          = link_to 'Novo Depoimento', new_testimonial_path, :class => "btn btn-green btn-primary btn-lg"
+          = link_to 'Novo Depoimento', new_testimonial_path, class: "btn btn-green btn-primary btn-lg"
