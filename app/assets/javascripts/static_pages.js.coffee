@@ -35,7 +35,8 @@ jQuery ->
   jQuery(".back-to-top").on 'click', (e) ->
     jQuery('html,body', document).animate({scrollTop:0}, 300)
   # Control if back-to-top appear
-  contactOffset = $contactBt.offset().top - 10
+  if $contactBt.length
+    contactOffset = $contactBt.offset().top - 10
   $document.on 'scroll', ->
     # Fix contact button
     if $document.scrollTop() >= contactOffset
